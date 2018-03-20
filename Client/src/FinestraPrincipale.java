@@ -1,10 +1,7 @@
 
-import java.util.concurrent.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import javafx.application.*;
 import javafx.event.*;
-import javafx.geometry.Pos;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
@@ -80,42 +77,45 @@ public class FinestraPrincipale extends Application{
         Carta cartaPresa = partita.prendiCarta();
         aggiungiCarta(this.boxGiocatore , cartaPresa.getNome());
         if(partita.getPartitaFinita()){
-            partita.resetta();
+            System.out.println("Hai superato i 7.5");
+            inizializzaPartita();
         }
     }
     
     public void stai(){
+        /*** AGGIORNA CARTA MAZZIERE ***/
+        boxMazziere.getChildren().clear();
+        Carta carta = partita.sostituisciCartaMazziere();
+        aggiungiCarta(boxMazziere, carta.getNome());
         
-        partita.sostituisciCartaMazziere();
-       
+        
+        try {
+            Thread.sleep(7000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(FinestraPrincipale.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
         while(!partita.getPartitaFinita()){
-           
-            
            if(partita.stai()){
                Carta cartaEstratta = partita.aggiungiCartaMazziere();
                aggiungiCarta(this.boxMazziere , cartaEstratta.getNome());
            }
-           
         } 
-        
-        try {
-            Thread.sleep(5500);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(FinestraPrincipale.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.out.println("TIME TO RESET");
-        //partita.resetta();
+        inizializzaPartita();
     }
 
     private void inizializzaPartita() {
-       String username = username_tf.getText();
-       this.partita = new Partita(username);
-       
+       this.partita = new Partita(username_tf.getText());
+       this.boxGiocatore.getChildren().clear();
+       this.boxMazziere.getChildren().clear();
+       partita.resetta();
     }
     
+    
      public void aggiungiCarta(HBox hbox, String nomeCarta){
-        String url = "file:../../myfiles/carte/" + nomeCarta + ".jpg";
+        String appMain = System.getProperty("user.dir");
+        String url ="file:" + appMain + "/myfiles/carte/" + nomeCarta + ".jpg";
         System.out.println(url);
         ImageView immagineCarta = new ImageView(url);
         immagineCarta.setPreserveRatio(true);
@@ -124,4 +124,7 @@ public class FinestraPrincipale extends Application{
          
     }
     
+     public static void main(String[] args){
+         launch(args);
+     }
 }

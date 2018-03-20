@@ -11,19 +11,17 @@ public class Partita {
     private Mazzo mazzo;
     private Giocatore mazziere;
     private Giocatore user;
-    
-    
     public boolean giocoFinito;
     
     public Partita(String username){
-        this.mazzo = new Mazzo();
         this.user = new Giocatore(username);
         this.mazziere = new Giocatore();
-        inizializza();
     }
     
     public void inizializza(){
+        this.mazzo = new Mazzo();
         mazzo.mescola();
+        giocoFinito = false;
         
         mazziere.inizializza();
         user.inizializza();
@@ -33,6 +31,7 @@ public class Partita {
         user.aggiungiCarta(cartaEstratta);
         
         cartaEstratta = mazzo.estraiCarta();
+        System.out.println(cartaEstratta.getNome());
         BoxCarte.aggiungiCarta(FinestraPrincipale.boxMazziere , "retro");
         mazziere.aggiungiCarta(cartaEstratta);
         
@@ -41,16 +40,18 @@ public class Partita {
     public Carta prendiCarta(){
         Carta cartaEstratta = mazzo.estraiCarta();
         user.aggiungiCarta(cartaEstratta);
+        System.out.println("Il numero di carte rimanenti è: " + Integer.toString(mazzo.size()));
         if (user.getPunteggio() > 7.5){
-            System.out.println("GAME OVER");
             giocoFinito = true;
         }
         return cartaEstratta;
     }
     
-    public void sostituisciCartaMazziere(){
-        BoxCarte.sostituisciCartaMazziere(FinestraPrincipale.boxMazziere, mazziere.getPrimaCarta());
+    public Carta sostituisciCartaMazziere(){
+        return mazziere.getPrimaCarta();
     }
+    
+   
     
     public Carta aggiungiCartaMazziere(){
         Carta cartaEstratta = mazzo.estraiCarta();
@@ -85,8 +86,12 @@ public class Partita {
     }   
     
     public void resetta(){
-        FinestraPrincipale.boxGiocatore.getChildren().clear();
-        FinestraPrincipale.boxMazziere.getChildren().clear();
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(FinestraPrincipale.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("TIME TO RESET");
         inizializza();
     }
     

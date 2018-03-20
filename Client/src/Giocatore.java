@@ -22,7 +22,7 @@ public class Giocatore {
     
     public double getPunteggio(){
         double punteggio = 0.0;
-        for ( Carta c : carte){
+        for (Carta c : carte){
             punteggio += c.getValore();
         }
         return punteggio;
