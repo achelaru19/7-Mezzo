@@ -1,5 +1,5 @@
 
-import java.util.logging.*;
+import javafx.animation.*;
 import javafx.application.*;
 import javafx.event.*;
 import javafx.scene.*;
@@ -8,6 +8,7 @@ import javafx.scene.image.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.*;
 import javafx.stage.*;
+import javafx.util.Duration;
 
 
 
@@ -19,6 +20,9 @@ public class FinestraPrincipale extends Application{
     private Partita partita;
     public static HBox boxGiocatore;
     public static HBox boxMazziere; 
+    private boolean carteDaScambiare;
+    
+    private Timeline timeline = new Timeline();
     
     @Override
     public void start(Stage stage)  {
@@ -75,43 +79,60 @@ public class FinestraPrincipale extends Application{
     
     public void prendi(){
         Carta cartaPresa = partita.prendiCarta();
-        aggiungiCarta(this.boxGiocatore , cartaPresa.getNome());
+        aggiungiCartaGiocatore(cartaPresa.getNome());
         if(partita.getPartitaFinita()){
             System.out.println("Hai superato i 7.5");
-            inizializzaPartita();
+            giocataMazziere();
         }
     }
     
     public void stai(){
         /*** AGGIORNA CARTA MAZZIERE ***/
-        boxMazziere.getChildren().clear();
-        Carta carta = partita.sostituisciCartaMazziere();
-        aggiungiCarta(boxMazziere, carta.getNome());
-        
-        
-        try {
-            Thread.sleep(7000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(FinestraPrincipale.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        while(!partita.getPartitaFinita()){
-           if(partita.stai()){
-               Carta cartaEstratta = partita.aggiungiCartaMazziere();
-               aggiungiCarta(this.boxMazziere , cartaEstratta.getNome());
-           }
-        } 
-        inizializzaPartita();
-    }
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(1200), event -> {
 
+            if(!partita.stai()) {
+                if(carteDaScambiare)
+                    giocataMazziere();
+                else
+                    timeline.stop();
+            } else {
+                giocataMazziere();
+            }
+        });
+
+        timeline.getKeyFrames().add(keyFrame);
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play(); 
+    };
+
+    private void giocataMazziere(){
+        
+        if(carteDaScambiare){
+            boxMazziere.getChildren().clear();
+            Carta carta = partita.sostituisciCartaMazziere();
+            aggiungiCarta(boxMazziere, carta.getNome());
+            carteDaScambiare = false;
+        } else {
+            Carta cartaEstratta = partita.aggiungiCartaMazziere();
+            aggiungiCartaMazziere(cartaEstratta.getNome());
+        }
+    };
+    
     private void inizializzaPartita() {
        this.partita = new Partita(username_tf.getText());
        this.boxGiocatore.getChildren().clear();
        this.boxMazziere.getChildren().clear();
        partita.resetta();
+       carteDaScambiare = true;
     }
     
+    private void aggiungiCartaMazziere(String nomeCarta){
+        aggiungiCarta(this.boxMazziere, nomeCarta);
+    }
+    
+    private void aggiungiCartaGiocatore(String nomeCarta){
+        aggiungiCarta(this.boxGiocatore, nomeCarta);
+    }
     
      public void aggiungiCarta(HBox hbox, String nomeCarta){
         String appMain = System.getProperty("user.dir");
@@ -127,4 +148,10 @@ public class FinestraPrincipale extends Application{
      public static void main(String[] args){
          launch(args);
      }
+
+    private KeyValue[] aggRandCartaMazziere() {
+        return null;
+        
+        
+    }
 }
