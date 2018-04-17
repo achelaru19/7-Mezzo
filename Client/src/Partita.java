@@ -86,11 +86,7 @@ public class Partita {
     }   
     
     public void resetta(){
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(FinestraPrincipale.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         System.out.println("TIME TO RESET");
         inizializza();
     }
