@@ -27,12 +27,7 @@ public class Partita {
         user.inizializza();
         
         Carta cartaEstratta = mazzo.estraiCarta();
-        BoxCarte.aggiungiCarta(FinestraPrincipale.boxGiocatore , cartaEstratta.getNome());
-        user.aggiungiCarta(cartaEstratta);
-        
-        cartaEstratta = mazzo.estraiCarta();
         System.out.println(cartaEstratta.getNome());
-        BoxCarte.aggiungiCarta(FinestraPrincipale.boxMazziere , "retro");
         mazziere.aggiungiCarta(cartaEstratta);
         
     }

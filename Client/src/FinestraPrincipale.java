@@ -1,6 +1,7 @@
 
 import javafx.animation.*;
 import javafx.application.*;
+import javafx.collections.*;
 import javafx.event.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -8,7 +9,7 @@ import javafx.scene.image.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.*;
 import javafx.stage.*;
-import javafx.util.Duration;
+import javafx.util.*;
 
 
 
@@ -21,6 +22,9 @@ public class FinestraPrincipale extends Application{
     public static HBox boxGiocatore;
     public static HBox boxMazziere; 
     private boolean carteDaScambiare;
+    private TableView<MigliorGiocatore> tabellaClassifica;
+    private ObservableList<MigliorGiocatore> tuplaClassifica;
+    
     
     private Timeline timeline = new Timeline();
     
@@ -87,8 +91,7 @@ public class FinestraPrincipale extends Application{
     }
     
     public void stai(){
-        /*** AGGIORNA CARTA MAZZIERE ***/
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(1200), event -> {
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), event -> {
 
             if(!partita.stai()) {
                 if(carteDaScambiare)
@@ -123,6 +126,9 @@ public class FinestraPrincipale extends Application{
        this.boxGiocatore.getChildren().clear();
        this.boxMazziere.getChildren().clear();
        partita.resetta();
+       aggiungiCartaMazziere("retro");
+       aggiungiCartaGiocatore(partita.prendiCarta().getNome());
+       timeline = new Timeline();
        carteDaScambiare = true;
     }
     
@@ -149,9 +155,5 @@ public class FinestraPrincipale extends Application{
          launch(args);
      }
 
-    private KeyValue[] aggRandCartaMazziere() {
-        return null;
-        
-        
-    }
+
 }
