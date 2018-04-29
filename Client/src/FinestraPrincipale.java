@@ -5,6 +5,7 @@ import javafx.collections.*;
 import javafx.event.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.*;
 import javafx.scene.image.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.*;
@@ -19,17 +20,19 @@ public class FinestraPrincipale extends Application{
     private Button prendi_bt, stai_bt, start_bt;
     private TextField username_tf; 
     private Partita partita;
-    public static HBox boxGiocatore;
-    public static HBox boxMazziere; 
+    private static HBox boxGiocatore;
+    private static HBox boxMazziere; 
     private boolean carteDaScambiare;
-    private TableView<MigliorGiocatore> tabellaClassifica;
-    private ObservableList<MigliorGiocatore> tuplaClassifica;
-    
-    
+    private TableView<MigliorGiocatore> tabellaClassifica = new TableView<>();;
+    public ObservableList<MigliorGiocatore> tuplaClassifica; 
+    private VBox classifica;
     private Timeline timeline = new Timeline();
+    private GestoreDataBase gestoreDB;
     
     @Override
     public void start(Stage stage)  {
+        
+        gestoreDB = new GestoreDataBase();
          
         boxGiocatore = new HBox(); //440, 640
         boxGiocatore.setSpacing(10.5);
@@ -69,11 +72,28 @@ public class FinestraPrincipale extends Application{
         username_tf.setLayoutX(15);
         username_tf.setLayoutY(30);
         
+        TableColumn usernameColumn = new TableColumn("USERNAME"); 
+        TableColumn punteggioColumn = new TableColumn("PUNTEGGIO"); 
+        usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username")); 
+        punteggioColumn.setCellValueFactory(new PropertyValueFactory<>("punteggio")); 
+        
+        tuplaClassifica = gestoreDB.caricaClassificaPredefiniti();
+     
+        
+        tabellaClassifica.setItems(tuplaClassifica);
+        tabellaClassifica.getColumns().addAll(usernameColumn, punteggioColumn);
+        
+        classifica = new VBox();
+        
+        classifica.getChildren().add(tabellaClassifica);
+        classifica.setLayoutX(930);
+        classifica.setLayoutY(30);
+        
         Color backgroundColor = Color.web("#277345");
         
 
         
-        Group root = new Group(mazzo_img, prendi_bt, stai_bt, start_bt, username_tf, boxGiocatore, boxMazziere);
+        Group root = new Group(mazzo_img, prendi_bt, stai_bt, start_bt, username_tf, boxGiocatore, boxMazziere, classifica);
         Scene scene = new Scene(root, 1200, 600, backgroundColor);
         stage.setTitle("7 e mezzo");
         stage.setScene(scene);
