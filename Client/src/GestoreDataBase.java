@@ -4,7 +4,6 @@ import javafx.collections.*;
 
 
 public class GestoreDataBase {
-    private boolean connessoDB;
     private final int portaDB;
     private final String usernameDB;
     private final String passwordDB;
@@ -12,15 +11,12 @@ public class GestoreDataBase {
     
     public GestoreDataBase(){
         //DA CAMBIARE
-        portaDB = 0;
-        usernameDB = "fd";
-        passwordDB = "fsd";
+        portaDB = 3306;
+        usernameDB = "root";
+        passwordDB = "";
     }
     
-    public boolean salvaPartita(){
-        return true;
-    }
-    
+    /*
     public ObservableList<MigliorGiocatore> caricaClassificaPredefiniti(){
       
         ObservableList<MigliorGiocatore> ol = FXCollections.observableArrayList( //8
@@ -39,19 +35,28 @@ public class GestoreDataBase {
        );
     
     return ol;
-    }
+    } */
     
-    public void caricaClassifica(){
-          //ol = FXCollections.observableArrayList();
-        /*try ( 
+    public ObservableList<MigliorGiocatore> caricaClassifica(){
+        ObservableList<MigliorGiocatore> ol = FXCollections.observableArrayList();
+        try ( 
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/setteemezzo", "root","");
             Statement query = connection.createStatement(); //10
         ) {
-        ResultSet result = query.executeQuery("SELECT * FROM conticorrenti LIMIT 10"); 
+        ResultSet result = query.executeQuery("SELECT username, count(*) as punteggio\n" +
+                                                "from partite \n" +
+                                                "where esito=1\n" +
+                                                "group by username\n" +
+                                                "order by punteggio desc\n" +
+                                                "limit 10;"); 
         while (result.next()) //12
             ol.add(new MigliorGiocatore(result.getString("username"), result.getInt("punteggio")));
         } catch (SQLException e) {System.err.println(e.getMessage());}
+        return ol;
     }
-                */
+    
+    public void salvaPartita(){
+        
     }
+    
 }

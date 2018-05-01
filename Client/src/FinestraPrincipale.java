@@ -77,7 +77,7 @@ public class FinestraPrincipale extends Application{
         usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username")); 
         punteggioColumn.setCellValueFactory(new PropertyValueFactory<>("punteggio")); 
         
-        tuplaClassifica = gestoreDB.caricaClassificaPredefiniti();
+        tuplaClassifica = gestoreDB.caricaClassifica();
      
         
         tabellaClassifica.setItems(tuplaClassifica);
