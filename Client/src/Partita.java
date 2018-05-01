@@ -90,7 +90,13 @@ public class Partita {
         return this.giocoFinito;
     }
     
-
+    public double getPunteggioGiocatore(){
+        return user.getPunteggio();
+    }
+    
+    public double getPunteggioMazziere(){
+        return mazziere.getPunteggio();
+    }
     
     public void mostraCarteMazziere(){
         // Scambia carta coperta con carta effettiva

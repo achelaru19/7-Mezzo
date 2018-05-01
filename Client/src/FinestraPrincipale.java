@@ -3,7 +3,9 @@ import javafx.animation.*;
 import javafx.application.*;
 import javafx.collections.*;
 import javafx.event.*;
+import javafx.geometry.*;
 import javafx.scene.*;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.*;
 import javafx.scene.image.*;
@@ -24,10 +26,11 @@ public class FinestraPrincipale extends Application{
     private static HBox boxMazziere; 
     private boolean carteDaScambiare;
     private TableView<MigliorGiocatore> tabellaClassifica = new TableView<>();;
-    public ObservableList<MigliorGiocatore> tuplaClassifica; 
+    private ObservableList<MigliorGiocatore> tuplaClassifica; 
     private VBox classifica;
     private Timeline timeline = new Timeline();
     private GestoreDataBase gestoreDB;
+    private PieChart grafico;
     
     @Override
     public void start(Stage stage)  {
@@ -88,12 +91,29 @@ public class FinestraPrincipale extends Application{
         classifica.getChildren().add(tabellaClassifica);
         classifica.setLayoutX(930);
         classifica.setLayoutY(30);
+        classifica.setMaxHeight(270);
+       
         
+        VBox vboxGrafico = new VBox();
+        
+        ObservableList<PieChart.Data> datiGrafico; 
+        datiGrafico = FXCollections.observableArrayList();
+        datiGrafico.addAll(gestoreDB.caricaGiocatoriAssidui());
+        
+        grafico = new PieChart(datiGrafico);   
+        grafico.setTitle("Giocatori Assidui");
+        grafico.setLegendSide(Side.BOTTOM);
+        grafico.setLabelsVisible(true); 
+        
+        vboxGrafico.setLayoutX(760);
+        vboxGrafico.setLayoutY(200);
+        vboxGrafico.getChildren().addAll(grafico);
+
         Color backgroundColor = Color.web("#277345");
         
 
         
-        Group root = new Group(mazzo_img, prendi_bt, stai_bt, start_bt, username_tf, boxGiocatore, boxMazziere, classifica);
+        Group root = new Group(mazzo_img, prendi_bt, stai_bt, start_bt, username_tf, boxGiocatore, boxMazziere, classifica, vboxGrafico);
         Scene scene = new Scene(root, 1200, 600, backgroundColor);
         stage.setTitle("7 e mezzo");
         stage.setScene(scene);
@@ -107,6 +127,8 @@ public class FinestraPrincipale extends Application{
         if(partita.getPartitaFinita()){
             System.out.println("Hai superato i 7.5");
             giocataMazziere();
+            System.out.println("FINE PARTITA");
+            gestoreDB.salvaPartita(username_tf.getText(), partita.getPunteggioGiocatore(), partita.getPunteggioMazziere());
         }
     }
     
@@ -117,6 +139,8 @@ public class FinestraPrincipale extends Application{
                 if(carteDaScambiare)
                     giocataMazziere();
                 else
+                    System.out.println("FINE PARTITA");
+                    gestoreDB.salvaPartita(username_tf.getText(), partita.getPunteggioGiocatore(), partita.getPunteggioMazziere());
                     timeline.stop();
             } else {
                 giocataMazziere();

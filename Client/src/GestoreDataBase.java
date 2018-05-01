@@ -1,7 +1,8 @@
 
 import java.sql.*;
 import javafx.collections.*;
-
+import java.util.*;
+import javafx.scene.chart.PieChart;
 
 public class GestoreDataBase {
     private final int portaDB;
@@ -55,8 +56,46 @@ public class GestoreDataBase {
         return ol;
     }
     
-    public void salvaPartita(){
-        
+    public void salvaPartita(String username, double punteggioGiocatore, double punteggioMazziere){
+        try ( 
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/setteemezzo", "root","");
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO partite VALUES(?,?,?,?,?)"); 
+        ) {
+        ps.setString(1, username);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        //String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+        ps.setTimestamp(2,timestamp);
+        int esito = esitoGioco(punteggioGiocatore, punteggioMazziere);
+        ps.setInt(3, esito);
+        ps.setDouble(4, punteggioGiocatore);
+        ps.setDouble(5, punteggioMazziere);
+        System.out.println("rows affected: " + ps.executeUpdate());
+        } catch (SQLException e) {System.err.println(e.getMessage());}
+    }
+
+    private int esitoGioco(double punteggioGiocatore, double punteggioMazziere) {
+        if(punteggioGiocatore > 7.5)
+             return 0;
+        if(punteggioMazziere > 7.5)
+            return 1;
+        if(punteggioGiocatore > punteggioMazziere)
+               return 1;
+        return 0;
+    }
+
+    public ObservableList<PieChart.Data> caricaGiocatoriAssidui() {
+        ObservableList<PieChart.Data> ol = FXCollections.observableArrayList();
+         try ( 
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/setteemezzo", "root","");
+            Statement query = connection.createStatement(); //10
+        ) {
+        ResultSet result = query.executeQuery("SELECT username, count(*) as partiteGiocate\n" +
+                                                "from partite \n" +
+                                                "group by username;");    
+            while (result.next()) //12
+                ol.add(new PieChart.Data(result.getString("username"), result.getInt("partiteGiocate")));
+        } catch (SQLException e) {System.err.println(e.getMessage());}
+        return ol;
     }
     
 }
