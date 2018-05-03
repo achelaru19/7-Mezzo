@@ -31,11 +31,15 @@ public class FinestraPrincipale extends Application{
     private Timeline timeline = new Timeline();
     private GestoreDataBase gestoreDB;
     private PieChart grafico;
+    private ManagerParametriConfigurazioni managerConfigurazioni;
+    private ConfigurazioniXML parametri;
     
     @Override
     public void start(Stage stage)  {
         
         gestoreDB = new GestoreDataBase();
+        managerConfigurazioni = new ManagerParametriConfigurazioni("Configurazioni.xml","Configurazioni.xsd");
+        parametri = managerConfigurazioni.inizializzaParametriConfigurazione();
          
         boxGiocatore = new HBox(); //440, 640
         boxGiocatore.setSpacing(10.5);
@@ -124,6 +128,8 @@ public class FinestraPrincipale extends Application{
     public void prendi(){
         Carta cartaPresa = partita.prendiCarta();
         aggiungiCartaGiocatore(cartaPresa.getNome());
+        if(parametri != null)
+            System.out.println(parametri.configurazioniStylingFinestraPrincipale.backgroundColor);
         if(partita.getPartitaFinita()){
             System.out.println("Hai superato i 7.5");
             giocataMazziere();

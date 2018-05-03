@@ -1,0 +1,22 @@
+<ConfigurazioniXML>
+	<configurazioniStylingFinestraPrincipale>
+		<dimensioneX>1200</dimensioneX>
+		<dimensioneY>600</dimensioneY>
+		<backgroundColor>#277345</backgroundColor>
+	</configurazioniStylingFinestraPrincipale>
+	<configurazioniDatabase>
+		<nomeDB>setteemezzo</nomeDB>
+		<porta>3306</porta>
+		<username>root</username>
+		<password>prg18</password>
+	</configurazioniDatabase>
+	<configurazioniClassifica>
+		<layoutX>930</layoutX>
+		<layoutY>30</layoutY>
+		<massimoNumeroMigliorGiocatori>10</massimoNumeroMigliorGiocatori>
+	</configurazioniClassifica>
+	<configurazioniTemporali>
+		<oreIndietroCache>5</oreIndietroCache>
+		<giorniIndietroPieChart>90</giorniIndietroPieChart>
+	</configurazioniTemporali>
+</ConfigurazioniXML>
