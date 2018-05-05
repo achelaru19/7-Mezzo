@@ -103,6 +103,14 @@ public class Partita {
         
     }
     
+    public List<Carta> carteMazziere(){
+        return mazziere.getCarte();
+    }
+    
+    public List<Carta> carteGiocatore(){
+        return user.getCarte();
+    }
+    
     
    /* public static void main(String[] args){
         

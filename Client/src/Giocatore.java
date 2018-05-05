@@ -43,6 +43,10 @@ public class Giocatore {
         }
     }
     
+    public List<Carta> getCarte(){
+        return carte;
+    }
+    
     public Carta getPrimaCarta(){
         return carte.get(0);
     }

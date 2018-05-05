@@ -1,4 +1,6 @@
 
+import java.sql.Timestamp;
+import java.util.*;
 import javafx.animation.*;
 import javafx.application.*;
 import javafx.collections.*;
@@ -25,6 +27,7 @@ public class FinestraPrincipale extends Application{
     private static HBox boxGiocatore;
     private static HBox boxMazziere; 
     private boolean carteDaScambiare;
+    private boolean giocoInCorso;
     private TableView<MigliorGiocatore> tabellaClassifica = new TableView<>();;
     private ObservableList<MigliorGiocatore> tuplaClassifica; 
     private VBox classifica;
@@ -33,6 +36,7 @@ public class FinestraPrincipale extends Application{
     private PieChart grafico;
     private ManagerParametriConfigurazioni managerConfigurazioni;
     private ConfigurazioniXML parametri;
+    private ManagerCacheBinaria managerCache = new ManagerCacheBinaria();
     
     @Override
     public void start(Stage stage)  {
@@ -40,6 +44,7 @@ public class FinestraPrincipale extends Application{
         gestoreDB = new GestoreDataBase();
         managerConfigurazioni = new ManagerParametriConfigurazioni("Configurazioni.xml","Configurazioni.xsd");
         parametri = managerConfigurazioni.inizializzaParametriConfigurazione();
+        caricaEventualeCache();
          
         boxGiocatore = new HBox(); //440, 640
         boxGiocatore.setSpacing(10.5);
@@ -119,6 +124,7 @@ public class FinestraPrincipale extends Application{
         
         Group root = new Group(mazzo_img, prendi_bt, stai_bt, start_bt, username_tf, boxGiocatore, boxMazziere, classifica, vboxGrafico);
         Scene scene = new Scene(root, 1200, 600, backgroundColor);
+        stage.setOnCloseRequest(ev ->{salvaCacheBinaria();/*generaEventoLogXML("CHIUSURA");*/});
         stage.setTitle("7 e mezzo");
         stage.setScene(scene);
         stage.show();
@@ -133,6 +139,7 @@ public class FinestraPrincipale extends Application{
         if(partita.getPartitaFinita()){
             System.out.println("Hai superato i 7.5");
             giocataMazziere();
+            giocoInCorso = false;
             System.out.println("FINE PARTITA");
             gestoreDB.salvaPartita(username_tf.getText(), partita.getPunteggioGiocatore(), partita.getPunteggioMazziere());
         }
@@ -165,6 +172,7 @@ public class FinestraPrincipale extends Application{
             Carta carta = partita.sostituisciCartaMazziere();
             aggiungiCarta(boxMazziere, carta.getNome());
             carteDaScambiare = false;
+            giocoInCorso = false;
         } else {
             Carta cartaEstratta = partita.aggiungiCartaMazziere();
             aggiungiCartaMazziere(cartaEstratta.getNome());
@@ -180,6 +188,8 @@ public class FinestraPrincipale extends Application{
        aggiungiCartaGiocatore(partita.prendiCarta().getNome());
        timeline = new Timeline();
        carteDaScambiare = true;
+       giocoInCorso = true;
+       managerCache.cancellaCacheBinaria();
     }
     
     private void aggiungiCartaMazziere(String nomeCarta){
@@ -200,10 +210,42 @@ public class FinestraPrincipale extends Application{
         hbox.getChildren().add(immagineCarta);
          
     }
+     
+    private void salvaCacheBinaria(){
+        if(giocoInCorso){
+            List<Carta> cG = partita.carteGiocatore();
+            List<Carta> cM = partita.carteMazziere();
+            managerCache.salvaCacheBinaria(username_tf.getText(), cG, cM);
+        }
+    }
+    
+    private void caricaEventualeCache() {
+        CacheBinaria cache = managerCache.prelevaCacheBinaria();
+        if(cache != null){
+            if(confrontaTimestamp(cache.tempo) <= parametri.configurazioniTemporali.oreIndietroCache){
+                System.out.println(cache.carteMazziere);
+                //SISTEMA CARTE
+            }
+        }
+        else
+            System.out.println("Non è stato possibile caricare la cache.");
+    }
+    
+    public long confrontaTimestamp(Timestamp time){
+        long milliseconds1 = time.getTime();
+        long milliseconds2 = System.currentTimeMillis();
+
+        long diff = milliseconds2 - milliseconds1;
+        long differenzaOre = diff / (60 * 60 * 1000);
+
+        return differenzaOre;
+    }
     
      public static void main(String[] args){
          launch(args);
      }
+
+    
 
 
 }

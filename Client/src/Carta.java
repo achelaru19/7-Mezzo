@@ -1,6 +1,8 @@
-import org.apache.commons.lang3.math.NumberUtils;
 
-public class Carta {
+import java.io.Serializable;
+
+
+public class Carta implements Serializable{
     private String numero;
     private String seme;
     
@@ -10,10 +12,11 @@ public class Carta {
     }
     
     public double getValore(){
-        if(NumberUtils.isNumber(this.numero))
-            return Integer.parseInt(this.numero);
-        else
+        try {
+            return Integer.parseInt(numero);
+        } catch (NumberFormatException e) {
             return 0.5;
+        }
                 
     }
     
