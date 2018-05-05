@@ -1,12 +1,11 @@
 
 import java.io.*;
-import java.nio.file.*;
 import java.util.*;
 
 
 public class ManagerCacheBinaria {
     
-    public void salvaCacheBinaria(String u, List<Carta> cG, List<Carta> cM){
+    public void salvaCacheBinaria(String u, List<Carta> cG, Carta cM){
         try(FileOutputStream file = new FileOutputStream("./Cache.bin");
             ObjectOutputStream oggettoScritto = new ObjectOutputStream(file);){
             CacheBinaria cache = new CacheBinaria(u, cG, cM);

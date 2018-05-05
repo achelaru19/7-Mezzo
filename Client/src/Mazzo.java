@@ -59,6 +59,25 @@ public class Mazzo {
         return cartaEstratta;
     }
     
+  /*  private int trovaIndice(Carta c){
+        int index = 0;
+        for(Carta carta : mazzo){
+            if(carta.getNome().equals(c.getNome()))
+                break;
+            index++;
+        }
+        return index;
+    }
+    */
+    public void estraiDeterminataCarta(Carta c){
+        for(int i = 0; i < mazzo.size(); i++){
+            if(mazzo.get(i).getNome().equals(c.getNome())){
+                mazzo.remove(i);
+                break;
+            }
+        }
+    }
+    
     public int size(){
         return mazzo.size();
     }

@@ -44,7 +44,6 @@ public class FinestraPrincipale extends Application{
         gestoreDB = new GestoreDataBase();
         managerConfigurazioni = new ManagerParametriConfigurazioni("Configurazioni.xml","Configurazioni.xsd");
         parametri = managerConfigurazioni.inizializzaParametriConfigurazione();
-        caricaEventualeCache();
          
         boxGiocatore = new HBox(); //440, 640
         boxGiocatore.setSpacing(10.5);
@@ -120,6 +119,7 @@ public class FinestraPrincipale extends Application{
 
         Color backgroundColor = Color.web("#277345");
         
+        
 
         
         Group root = new Group(mazzo_img, prendi_bt, stai_bt, start_bt, username_tf, boxGiocatore, boxMazziere, classifica, vboxGrafico);
@@ -129,6 +129,8 @@ public class FinestraPrincipale extends Application{
         stage.setScene(scene);
         stage.show();
         
+        
+        caricaEventualeCache();
     }
     
     public void prendi(){
@@ -214,7 +216,7 @@ public class FinestraPrincipale extends Application{
     private void salvaCacheBinaria(){
         if(giocoInCorso){
             List<Carta> cG = partita.carteGiocatore();
-            List<Carta> cM = partita.carteMazziere();
+            Carta cM = partita.carteMazziere().get(0);
             managerCache.salvaCacheBinaria(username_tf.getText(), cG, cM);
         }
     }
@@ -223,8 +225,23 @@ public class FinestraPrincipale extends Application{
         CacheBinaria cache = managerCache.prelevaCacheBinaria();
         if(cache != null){
             if(confrontaTimestamp(cache.tempo) <= parametri.configurazioniTemporali.oreIndietroCache){
-                System.out.println(cache.carteMazziere);
-                //SISTEMA CARTE
+
+                partita = new Partita(cache.username);
+                boxGiocatore.getChildren().clear();
+                boxMazziere.getChildren().clear();
+                System.out.println(cache.cartaMazziere.getNome());
+                partita.aggiungiCartaMazziere(cache.cartaMazziere);
+                aggiungiCartaMazziere("retro");
+                for(Carta c : cache.carteGiocatore){
+                    partita.aggiungiCartaGiocatore(c);
+                    aggiungiCartaGiocatore(c.getNome());
+                }
+                username_tf.setText(cache.username);
+                
+                timeline = new Timeline();
+                carteDaScambiare = true;
+                giocoInCorso = true;
+                managerCache.cancellaCacheBinaria();
             }
         }
         else

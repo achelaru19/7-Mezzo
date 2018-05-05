@@ -1,10 +1,5 @@
 
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.image.*;
-import javafx.scene.layout.*;
 
 
 public class Partita {
@@ -16,6 +11,9 @@ public class Partita {
     public Partita(String username){
         this.user = new Giocatore(username);
         this.mazziere = new Giocatore();
+        this.giocoFinito = false;
+        this.mazzo = new Mazzo();
+        mazzo.mescola();
     }
     
     public void inizializza(){
@@ -98,11 +96,6 @@ public class Partita {
         return mazziere.getPunteggio();
     }
     
-    public void mostraCarteMazziere(){
-        // Scambia carta coperta con carta effettiva
-        
-    }
-    
     public List<Carta> carteMazziere(){
         return mazziere.getCarte();
     }
@@ -111,30 +104,15 @@ public class Partita {
         return user.getCarte();
     }
     
-    
-   /* public static void main(String[] args){
-        
-        while(true){
-        
-            Partita p = new Partita("angel");
-
-            while(!p.getPartitaFinita()){
-                //p.mostraCarteGiocatore();
-                System.out.print("Enter something : ");
-                Scanner scanner = new Scanner(System.in);
-                String mossa = scanner.nextLine();
-                if(mossa.equals("+")){
-                    p.prendiCarta();
-                }
-                else{
-                    p.stai();
-                    break;
-                }
-            }
-            
-            System.out.println("-----------------");
-        }
+    public void aggiungiCartaMazziere(Carta c){
+        mazzo.estraiDeterminataCarta(c);
+        mazziere.aggiungiCarta(c);
     }
-   */  
+    
+    public void aggiungiCartaGiocatore(Carta c){
+        mazzo.estraiDeterminataCarta(c);
+        user.aggiungiCarta(c);
+    }
+     
 }
 
