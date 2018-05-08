@@ -1,0 +1,40 @@
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>131.114.173.221</utente>
+  <timestamp>2018-05-08 11:52:05.171</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 11:52:21.834</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 11:52:23.354</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 11:52:37.04</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 11:53:21.989</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 11:53:51.663</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 11:53:54.329</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>131.114.173.221</utente>
+  <timestamp>2018-05-08 11:53:59.979</timestamp>
+</MessaggioDiLog>

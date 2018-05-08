@@ -45,4 +45,11 @@
 </xsd:sequence>
 </xsd:complexType>
 
+<xsd:complexType name="ConfigurazioniServer">
+ <xsd:sequence>
+	<xsd:element name="ip" type="xsd:string"/>
+	<xsd:element name="porta" type="xsd:integer"/>
+</xsd:sequence>
+</xsd:complexType>
+
 </xsd:schema>

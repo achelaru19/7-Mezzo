@@ -1,0 +1,15 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<!-- validaLog.xsd -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ 
+ <xsd:element name="MessaggioDiLog">
+  <xsd:complexType>
+    <xsd:sequence>
+		<xsd:element name="etichetta" type="xsd:string"/>
+		<xsd:element name="utente" type="xsd:string"/>
+		<xsd:element name="timestamp" type="xsd:string"/>
+	</xsd:sequence>
+  </xsd:complexType>
+ </xsd:element>
+ 
+</xsd:schema>

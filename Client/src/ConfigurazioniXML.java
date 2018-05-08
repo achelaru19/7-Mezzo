@@ -5,6 +5,7 @@ public class ConfigurazioniXML {
     public ConfigurazioniDatabaseXML configurazioniDatabase;
     public ConfigurazioniClassificaXML configurazioniClassifica;
     public ConfigurazioniTemporaliXML configurazioniTemporali;
+    public ConfigurazioniServer configurazioniServer;
     
     public ConfigurazioniXML(ConfigurazioniStylingFinestraPrincipaleXML csfp,ConfigurazioniDatabaseXML cdb,
                                     ConfigurazioniClassificaXML cc,ConfigurazioniTemporaliXML ct ){
@@ -66,6 +67,17 @@ public class ConfigurazioniXML {
         oreIndietroCache = ore;
         giorniIndietroPieChart = giorni;
     }
+    }
+    
+    class ConfigurazioniServer{
+    /* Configurazioni Server */
+           public String ip;
+           public int porta;
+           
+           public ConfigurazioniServer(String i, int p){
+               ip = i;
+               porta = p;
+           }
     }
 }
 

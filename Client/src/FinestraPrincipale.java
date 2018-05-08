@@ -1,5 +1,9 @@
 
-import java.sql.Timestamp;
+import com.thoughtworks.xstream.XStream;
+import java.io.*;
+import java.net.*;
+import java.nio.file.*;
+import java.sql.*;
 import java.util.*;
 import javafx.animation.*;
 import javafx.application.*;
@@ -28,7 +32,7 @@ public class FinestraPrincipale extends Application{
     private static HBox boxMazziere; 
     private boolean carteDaScambiare;
     private boolean giocoInCorso;
-    private TableView<MigliorGiocatore> tabellaClassifica = new TableView<>();;
+    private final TableView<MigliorGiocatore> tabellaClassifica = new TableView<>();;
     private ObservableList<MigliorGiocatore> tuplaClassifica; 
     private VBox classifica;
     private Timeline timeline = new Timeline();
@@ -36,7 +40,7 @@ public class FinestraPrincipale extends Application{
     private PieChart grafico;
     private ManagerParametriConfigurazioni managerConfigurazioni;
     private ConfigurazioniXML parametri;
-    private ManagerCacheBinaria managerCache = new ManagerCacheBinaria();
+    private final ManagerCacheBinaria managerCache = new ManagerCacheBinaria();
     
     @Override
     public void start(Stage stage)  {
@@ -75,9 +79,9 @@ public class FinestraPrincipale extends Application{
         start_bt.setLayoutX(175);
         start_bt.setLayoutY(30);
         
-        prendi_bt.setOnAction((ActionEvent ev)->{prendi();});
-        stai_bt.setOnAction((ActionEvent ev)->{stai();});
-        start_bt.setOnAction((ActionEvent ev)->{inizializzaPartita();});
+        prendi_bt.setOnAction((ActionEvent ev)->{prendi();generaEventoLogXML("PRENDI");});
+        stai_bt.setOnAction((ActionEvent ev)->{stai();generaEventoLogXML("STAI");});
+        start_bt.setOnAction((ActionEvent ev)->{inizializzaPartita();generaEventoLogXML("START");});
        
         
         username_tf.setLayoutX(15);
@@ -124,13 +128,12 @@ public class FinestraPrincipale extends Application{
         
         Group root = new Group(mazzo_img, prendi_bt, stai_bt, start_bt, username_tf, boxGiocatore, boxMazziere, classifica, vboxGrafico);
         Scene scene = new Scene(root, 1200, 600, backgroundColor);
-        stage.setOnCloseRequest(ev ->{salvaCacheBinaria();/*generaEventoLogXML("CHIUSURA");*/});
+        stage.setOnCloseRequest(ev ->{salvaCacheBinaria();generaEventoLogXML("CHIUSURA");});
         stage.setTitle("7 e mezzo");
         stage.setScene(scene);
         stage.show();
-        
-        
         caricaEventualeCache();
+        generaEventoLogXML("APERTURA");
     }
     
     public void prendi(){
@@ -182,9 +185,9 @@ public class FinestraPrincipale extends Application{
     };
     
     private void inizializzaPartita() {
-       this.partita = new Partita(username_tf.getText());
-       this.boxGiocatore.getChildren().clear();
-       this.boxMazziere.getChildren().clear();
+       partita = new Partita(username_tf.getText());
+       boxGiocatore.getChildren().clear();
+       boxMazziere.getChildren().clear();
        partita.resetta();
        aggiungiCartaMazziere("retro");
        aggiungiCartaGiocatore(partita.prendiCarta().getNome());
@@ -195,11 +198,11 @@ public class FinestraPrincipale extends Application{
     }
     
     private void aggiungiCartaMazziere(String nomeCarta){
-        aggiungiCarta(this.boxMazziere, nomeCarta);
+        aggiungiCarta(boxMazziere, nomeCarta);
     }
     
     private void aggiungiCartaGiocatore(String nomeCarta){
-        aggiungiCarta(this.boxGiocatore, nomeCarta);
+        aggiungiCarta(boxGiocatore, nomeCarta);
     }
     
      public void aggiungiCarta(HBox hbox, String nomeCarta){
@@ -258,11 +261,42 @@ public class FinestraPrincipale extends Application{
         return differenzaOre;
     }
     
+
+        private void generaEventoLogXML(String etichetta){
+        MessaggioDiLog logMessage;
+        String utente = null;
+        if(giocoInCorso)
+            utente = username_tf.getText();
+        else{
+            try(final DatagramSocket socket = new DatagramSocket()){ //(10)
+                socket.connect(InetAddress.getByName("8.8.8.8"), 10002);
+                utente = (String) socket.getLocalAddress().getHostAddress();
+            }catch(Exception e) {System.out.println(e.getMessage());}
+        }
+        logMessage = new MessaggioDiLog(etichetta, utente,
+                                    new Timestamp(System.currentTimeMillis()).toString());
+        XStream xs = new XStream();
+        String x = xs.toXML(logMessage);
+        try(Socket s = new Socket(parametri.configurazioniServer.ip, parametri.configurazioniServer.porta);
+            ObjectOutputStream oout = new ObjectOutputStream(s.getOutputStream());)
+        {   
+            x = x + "\n";
+            oout.writeObject(x);
+            Files.write(Paths.get("./EventoLog.txt"), x.getBytes());
+        } catch(Exception e){System.out.println("Scrittura non riuscita, Errore:" + e.getMessage());}
+    }    
+
+
      public static void main(String[] args){
          launch(args);
      }
-
-    
-
-
 }
+
+/*
+
+(10) Soluzione per trovare l'IP usato dall'applicazione.  
+     Il codice è stato preso da https://stackoverflow.com/questions/9481865/getting-the-ip-address-of-the-current-machine-using-java
+
+
+
+*/

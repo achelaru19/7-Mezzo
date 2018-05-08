@@ -33,7 +33,7 @@ public class Partita {
     public Carta prendiCarta(){
         Carta cartaEstratta = mazzo.estraiCarta();
         user.aggiungiCarta(cartaEstratta);
-        System.out.println("Il numero di carte rimanenti è: " + Integer.toString(mazzo.size()));
+        System.out.println("Il numero di carte rimanenti è: " + Integer.toString(mazzo.getSize()));
         if (user.getPunteggio() > 7.5){
             giocoFinito = true;
         }

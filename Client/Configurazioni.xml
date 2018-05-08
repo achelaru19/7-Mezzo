@@ -19,4 +19,8 @@
 		<oreIndietroCache>5</oreIndietroCache>
 		<giorniIndietroPieChart>90</giorniIndietroPieChart>
 	</configurazioniTemporali>
+	<configurazioniServer>
+		<ip>127.0.0.1</ip>
+		<porta>8080</porta>
+	</configurazioniServer>
 </ConfigurazioniXML>

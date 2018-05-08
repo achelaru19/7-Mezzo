@@ -12,7 +12,7 @@ public class Mazzo {
         
     }
     
-    public void inizializza(){
+    private void inizializza(){
         
         String[] semi = {"denari","bastoni","coppe","spade"};
         
@@ -59,16 +59,6 @@ public class Mazzo {
         return cartaEstratta;
     }
     
-  /*  private int trovaIndice(Carta c){
-        int index = 0;
-        for(Carta carta : mazzo){
-            if(carta.getNome().equals(c.getNome()))
-                break;
-            index++;
-        }
-        return index;
-    }
-    */
     public void estraiDeterminataCarta(Carta c){
         for(int i = 0; i < mazzo.size(); i++){
             if(mazzo.get(i).getNome().equals(c.getNome())){
@@ -78,26 +68,8 @@ public class Mazzo {
         }
     }
     
-    public int size(){
+    public int getSize(){
         return mazzo.size();
     }
     
-    
-    public static void main(String[] args){
-        Mazzo m = new Mazzo();
-        System.out.println(m);
-        System.out.println(m.size());
-        m.mescola();
-        System.out.println(m.estraiCarta().getNome());
-        System.out.println(m.size());
-        System.out.println(m.estraiCarta().getNome());
-        System.out.println(m.size());
-        m.inizializza();
-        System.out.println(m.size());
-        
-        System.out.println(m.estraiCarta().getNome());
-        System.out.println(m.size());
-        System.out.println(m.estraiCarta().getNome());
-        System.out.println(m.size());
-    }
 }
