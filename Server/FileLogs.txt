@@ -1,40 +1,140 @@
 <MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>131.114.173.221</utente>
+  <timestamp>2018-05-08 12:45:53.775</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
   <etichetta>APERTURA</etichetta>
   <utente>131.114.173.221</utente>
-  <timestamp>2018-05-08 11:52:05.171</timestamp>
+  <timestamp>2018-05-08 12:46:00.851</timestamp>
 </MessaggioDiLog>
 <MessaggioDiLog>
   <etichetta>START</etichetta>
   <utente>a.chelaru</utente>
-  <timestamp>2018-05-08 11:52:21.834</timestamp>
+  <timestamp>2018-05-08 12:46:21.6</timestamp>
 </MessaggioDiLog>
 <MessaggioDiLog>
   <etichetta>STAI</etichetta>
   <utente>a.chelaru</utente>
-  <timestamp>2018-05-08 11:52:23.354</timestamp>
+  <timestamp>2018-05-08 12:46:22.759</timestamp>
 </MessaggioDiLog>
 <MessaggioDiLog>
   <etichetta>START</etichetta>
   <utente>a.chelaru</utente>
-  <timestamp>2018-05-08 11:52:37.04</timestamp>
+  <timestamp>2018-05-08 12:46:30.34</timestamp>
 </MessaggioDiLog>
 <MessaggioDiLog>
-  <etichetta>CHIUSURA</etichetta>
-  <utente>a.chelaru</utente>
-  <timestamp>2018-05-08 11:53:21.989</timestamp>
+  <etichetta>PRENDI</etichetta>
+  <utente>131.114.173.221</utente>
+  <timestamp>2018-05-08 12:46:31.52</timestamp>
 </MessaggioDiLog>
 <MessaggioDiLog>
-  <etichetta>APERTURA</etichetta>
+  <etichetta>START</etichetta>
   <utente>a.chelaru</utente>
-  <timestamp>2018-05-08 11:53:51.663</timestamp>
+  <timestamp>2018-05-08 12:46:32.684</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:46:34.1</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:46:34.741</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>131.114.173.221</utente>
+  <timestamp>2018-05-08 12:46:36.0</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:46:37.22</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:46:38.151</timestamp>
 </MessaggioDiLog>
 <MessaggioDiLog>
   <etichetta>STAI</etichetta>
   <utente>a.chelaru</utente>
-  <timestamp>2018-05-08 11:53:54.329</timestamp>
+  <timestamp>2018-05-08 12:46:39.334</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:46:51.26</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>131.114.173.221</utente>
+  <timestamp>2018-05-08 12:46:53.261</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:46:54.612</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:46:55.62</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>131.114.173.221</utente>
+  <timestamp>2018-05-08 12:46:57.52</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:46:58.62</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:46:59.942</timestamp>
 </MessaggioDiLog>
 <MessaggioDiLog>
   <etichetta>CHIUSURA</etichetta>
   <utente>131.114.173.221</utente>
-  <timestamp>2018-05-08 11:53:59.979</timestamp>
+  <timestamp>2018-05-08 12:47:08.959</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>131.114.173.221</utente>
+  <timestamp>2018-05-08 12:50:20.511</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:50:27.056</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:50:30.027</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:50:31.414</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:50:39.963</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:50:41.976</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-05-08 12:50:47.11</timestamp>
 </MessaggioDiLog>

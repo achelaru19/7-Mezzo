@@ -9,6 +9,7 @@
 	<xsd:element name="configurazioniDatabase" type="ConfigurazioniDatabaseXML"/>
 	<xsd:element name="configurazioniClassifica" type="ConfigurazioniClassificaXML"/>
 	<xsd:element name="configurazioniTemporali" type="ConfigurazioniTemporaliXML"/>
+	<xsd:element name="configurazioniServer" type="ConfigurazioniServerXML"/>
   </xsd:sequence>
  </xsd:complexType>
 </xsd:element>
@@ -45,7 +46,7 @@
 </xsd:sequence>
 </xsd:complexType>
 
-<xsd:complexType name="ConfigurazioniServer">
+<xsd:complexType name="ConfigurazioniServerXML">
  <xsd:sequence>
 	<xsd:element name="ip" type="xsd:string"/>
 	<xsd:element name="porta" type="xsd:integer"/>

@@ -5,15 +5,15 @@ public class ConfigurazioniXML {
     public ConfigurazioniDatabaseXML configurazioniDatabase;
     public ConfigurazioniClassificaXML configurazioniClassifica;
     public ConfigurazioniTemporaliXML configurazioniTemporali;
-    public ConfigurazioniServer configurazioniServer;
+    public ConfigurazioniServerXML configurazioniServer;
     
     public ConfigurazioniXML(ConfigurazioniStylingFinestraPrincipaleXML csfp,ConfigurazioniDatabaseXML cdb,
-                                    ConfigurazioniClassificaXML cc,ConfigurazioniTemporaliXML ct ){
+                                    ConfigurazioniClassificaXML cc,ConfigurazioniTemporaliXML ct, ConfigurazioniServerXML cs ){
         configurazioniStylingFinestraPrincipale = csfp;
         configurazioniDatabase = cdb;
         configurazioniClassifica = cc;
         configurazioniTemporali = ct;
-        
+        configurazioniServer = cs;
     }
     
     
@@ -23,11 +23,11 @@ public class ConfigurazioniXML {
     public int dimensioneY;
     public String backgroundColor;
     
-    public ConfigurazioniStylingFinestraPrincipaleXML(int dimX, int dimY, String color){
-        dimensioneX = dimX;
-        dimensioneY = dimY;
-        backgroundColor = color;
-    }
+        public ConfigurazioniStylingFinestraPrincipaleXML(int dimX, int dimY, String color){
+            dimensioneX = dimX;
+            dimensioneY = dimY;
+            backgroundColor = color;
+        }
     }
     
     class ConfigurazioniDatabaseXML{
@@ -37,12 +37,12 @@ public class ConfigurazioniXML {
     public String username;
     public String password;
     
-    public ConfigurazioniDatabaseXML(String name, int port, String user, String pass){
-        nomeDB = name;
-        porta = port;
-        username = user;
-        password = pass;
-    }
+        public ConfigurazioniDatabaseXML(String name, int port, String user, String pass){
+            nomeDB = name;
+            porta = port;
+            username = user;
+            password = pass;
+        }
     }
     
     class ConfigurazioniClassificaXML{
@@ -51,11 +51,11 @@ public class ConfigurazioniXML {
     public int layoutY;
     public int massimoNumeroMigliorGiocatori;
     
-    public ConfigurazioniClassificaXML(int X, int Y, int maxNum){
-        layoutX = X;
-        layoutY = Y;
-        massimoNumeroMigliorGiocatori = maxNum;
-    }
+        public ConfigurazioniClassificaXML(int X, int Y, int maxNum){
+            layoutX = X;
+            layoutY = Y;
+            massimoNumeroMigliorGiocatori = maxNum;
+        }
     }
     
     class ConfigurazioniTemporaliXML{
@@ -63,21 +63,21 @@ public class ConfigurazioniXML {
     public int oreIndietroCache;
     public int giorniIndietroPieChart;
     
-    public ConfigurazioniTemporaliXML(int ore, int giorni){
-        oreIndietroCache = ore;
-        giorniIndietroPieChart = giorni;
-    }
+        public ConfigurazioniTemporaliXML(int ore, int giorni){
+            oreIndietroCache = ore;
+            giorniIndietroPieChart = giorni;
+        }
     }
     
-    class ConfigurazioniServer{
+    class ConfigurazioniServerXML{
     /* Configurazioni Server */
-           public String ip;
-           public int porta;
+    public String ip;
+    public int porta;
            
-           public ConfigurazioniServer(String i, int p){
-               ip = i;
-               porta = p;
-           }
+        public ConfigurazioniServerXML(String i, int p){
+            ip = i;
+            porta = p;
+        }
     }
 }
 
