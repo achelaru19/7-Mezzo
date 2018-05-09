@@ -1,14 +1,14 @@
 <ConfigurazioniXML>
 	<configurazioniStylingFinestraPrincipale>
-		<dimensioneX>1200</dimensioneX>
-		<dimensioneY>600</dimensioneY>
+		<dimensioneX>1350</dimensioneX>
+		<dimensioneY>650</dimensioneY>
 		<backgroundColor>#277345</backgroundColor>
 	</configurazioniStylingFinestraPrincipale>
 	<configurazioniDatabase>
 		<nomeDB>setteemezzo</nomeDB>
 		<porta>3306</porta>
 		<username>root</username>
-		<password>prg18</password>
+		<password></password>
 	</configurazioniDatabase>
 	<configurazioniClassifica>
 		<layoutX>930</layoutX>

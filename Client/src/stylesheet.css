@@ -1,0 +1,33 @@
+.cartaPescata {
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-width: 1;
+}
+
+.start-button {
+    -fx-background-color: 
+        #c3c4c4,
+        linear-gradient(#d6d6d6 50%, white 100%),
+        radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+}
+
+.stai-button {
+-fx-background-color: linear-gradient(#ff5400, #be1d00);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+	-fx-padding: 6 10 6 10;
+}
+
+.prendi-button {
+-fx-background-color: linear-gradient(#f0ff35, #a9ff00);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: #395306;
+	-fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
