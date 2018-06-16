@@ -16,7 +16,7 @@ import javafx.scene.control.cell.*;
 import javafx.scene.image.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.*;
-import javafx.scene.text.Font;
+import javafx.scene.text.*;
 import javafx.stage.*;
 import javafx.util.*;
 
@@ -42,6 +42,8 @@ public class FinestraPrincipale extends Application{
     private ManagerParametriConfigurazioni managerConfigurazioni;
     public static ConfigurazioniXML parametri;
     private final ManagerCacheBinaria managerCache = new ManagerCacheBinaria();
+    private Text  stringaVittoria = new Text ("Hai vinto!");
+    private Text  stringaSconfitta = new Text ("Hai perso!");
     
     @Override
     public void start(Stage stage)  {
@@ -53,7 +55,8 @@ public class FinestraPrincipale extends Application{
         
         inizializzaElementi();
   
-        Group root = new Group(mazzo_img, prendi_bt, stai_bt, start_bt, username_tf, boxGiocatore, boxMazziere, classifica, vboxGrafico);
+        Group root = new Group(mazzo_img, prendi_bt, stai_bt, start_bt, username_tf, stringaVittoria,
+                                  stringaSconfitta, boxGiocatore, boxMazziere, classifica, vboxGrafico);
         Scene scene = new Scene(root, 1350, 650, Color.web(parametri.configurazioniStylingFinestraPrincipale.backgroundColor));
         scene.getStylesheets().add(this.getClass().getResource("stylesheet.css").toExternalForm());
         stage.setOnCloseRequest(ev ->{salvaCacheBinaria();generaEventoLogXML("CHIUSURA");});
@@ -75,6 +78,7 @@ public class FinestraPrincipale extends Application{
             giocataMazziere();
             giocoInCorso = false;
             System.out.println("FINE PARTITA");
+            mostraSconfitta();
             gestoreDB.salvaPartita(username_tf.getText(), partita.getPunteggioGiocatore(), partita.getPunteggioMazziere());
         }
     }
@@ -83,10 +87,16 @@ public class FinestraPrincipale extends Application{
         KeyFrame keyFrame;
         keyFrame = new KeyFrame(Duration.millis(1500),( ActionEvent event) -> {
             if(!partita.stai()) {
-                if(carteDaScambiare)
-                    giocataMazziere();
-                else
+                if(carteDaScambiare){
+                    giocataMazziere();   
+                    if(partita.vittoria())
+                          mostraVittoria();
+                    else
+                          mostraSconfitta();
+                }
+                else{
                     System.out.println("FINE PARTITA");
+                }
                 gestoreDB.salvaPartita(username_tf.getText(), partita.getPunteggioGiocatore(), partita.getPunteggioMazziere());
                 timeline.stop();
             } else {
@@ -123,6 +133,7 @@ public class FinestraPrincipale extends Application{
        timeline = new Timeline();
        carteDaScambiare = true;
        giocoInCorso = true;
+       inizializzaTextVittoriaSconfitta();
        managerCache.cancellaCacheBinaria();
     }
     
@@ -191,6 +202,31 @@ public class FinestraPrincipale extends Application{
         return differenzaOre;
     }
     
+    private void mostraVittoria(){
+        stringaVittoria.setFill(Color.GOLD);
+        stringaVittoria.setFont(Font.loadFont("file:../../myfiles/font/ProximaNovaSoft-Regular.ttf", 120));
+        stringaVittoria.setStyle("-fx-font: 100px ");
+        ScaleTransition st = new ScaleTransition(Duration.millis(2000), stringaVittoria);
+        st.setByX(1.5f);
+        st.setByY(1.5f);
+        st.setCycleCount(2);
+        st.setAutoReverse(true);
+ 
+        st.play();  
+    }
+    
+    private void mostraSconfitta(){
+        stringaSconfitta.setFill(Color.RED);
+        stringaSconfitta.setFont(Font.loadFont("file:../../myfiles/font/ProximaNovaSoft-Regular.ttf", 120));
+        stringaSconfitta.setStyle("-fx-font: 100px ");
+        ScaleTransition st = new ScaleTransition(Duration.millis(2000), stringaSconfitta);
+        st.setByX(1.5f);
+        st.setByY(1.5f);
+        st.setCycleCount(2);
+        st.setAutoReverse(true);
+ 
+        st.play();  
+    }
 
     private void generaEventoLogXML(String etichetta){
         MessaggioDiLog logMessage;
@@ -223,6 +259,7 @@ public class FinestraPrincipale extends Application{
         inizializzaBottoniEImmagini();
         inizializzaClassifica();
         inizializzaPieChart();
+        inizializzaTextVittoriaSconfitta();
     
     }    
         
@@ -314,9 +351,21 @@ public class FinestraPrincipale extends Application{
         boxMazziere.setLayoutY(97);
         boxMazziere.setLayoutX(100);
         boxMazziere.setMaxWidth(250);
-        
+             
     }
 
+    
+    private void inizializzaTextVittoriaSconfitta(){
+
+        stringaSconfitta.setFill(Color.TRANSPARENT);
+        stringaSconfitta.setX(760);
+        stringaSconfitta.setY(330);
+        
+        stringaVittoria.setFill(Color.TRANSPARENT);
+        stringaVittoria.setX(760);
+        stringaVittoria.setY(330);
+        
+    }
      public static void main(String[] args){
          launch(args);
      }

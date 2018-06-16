@@ -7,12 +7,14 @@ public class Partita {
     private Giocatore mazziere;
     private Giocatore user;
     public boolean giocoFinito;
+    public boolean vittoria;
     
     public Partita(String username){
         this.user = new Giocatore(username);
         this.mazziere = new Giocatore();
         this.giocoFinito = false;
         this.mazzo = new Mazzo();
+        vittoria = false;
         mazzo.mescola();
     }
     
@@ -64,6 +66,7 @@ public class Partita {
         else{
             if(punteggioMazziere > 7.5){
                 System.out.println("HAI VINTO");
+                vittoria = true;
                 System.out.println("Il punteggio mazziere è " + Double.toString(punteggioMazziere));
                 giocoFinito = true;
                 return false;
@@ -112,6 +115,10 @@ public class Partita {
     public void aggiungiCartaGiocatore(Carta c){
         mazzo.estraiDeterminataCarta(c);
         user.aggiungiCarta(c);
+    }
+    
+    public boolean vittoria(){
+        return vittoria;
     }
      
 }
