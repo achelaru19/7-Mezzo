@@ -31,3 +31,9 @@
 	-fx-font-weight: bold;
     -fx-font-size: 13px;
 }
+
+.chart-title {
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+  -fx-font-size: 1.6em;
+}

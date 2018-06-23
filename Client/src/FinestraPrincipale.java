@@ -68,7 +68,7 @@ public class FinestraPrincipale extends Application{
         generaEventoLogXML("APERTURA");
     }
     
-    public void prendi(){
+    private void prendi(){
         Carta cartaPresa = partita.prendiCarta();
         aggiungiCartaGiocatore(cartaPresa.getNome());
         if(parametri != null)
@@ -83,7 +83,7 @@ public class FinestraPrincipale extends Application{
         }
     }
     
-    public void stai(){
+    private void stai(){
         KeyFrame keyFrame;
         keyFrame = new KeyFrame(Duration.millis(1500),( ActionEvent event) -> {
             if(!partita.stai()) {
@@ -93,8 +93,12 @@ public class FinestraPrincipale extends Application{
                           mostraVittoria();
                     else
                           mostraSconfitta();
-                }
+                }//**************** CONTROLLA *******************//
                 else{
+                    if(partita.vittoria())
+                          mostraVittoria();
+                    else
+                          mostraSconfitta();
                     System.out.println("FINE PARTITA");
                 }
                 gestoreDB.salvaPartita(username_tf.getText(), partita.getPunteggioGiocatore(), partita.getPunteggioMazziere());
@@ -207,9 +211,9 @@ public class FinestraPrincipale extends Application{
         stringaVittoria.setFont(Font.loadFont("file:../../myfiles/font/ProximaNovaSoft-Regular.ttf", 120));
         stringaVittoria.setStyle("-fx-font: 100px ");
         ScaleTransition st = new ScaleTransition(Duration.millis(2000), stringaVittoria);
-        st.setByX(1.5f);
-        st.setByY(1.5f);
-        st.setCycleCount(2);
+        st.setByX(2.3f);
+        st.setByY(2.3f);
+        st.setCycleCount(Timeline.INDEFINITE);
         st.setAutoReverse(true);
  
         st.play();  
@@ -222,7 +226,7 @@ public class FinestraPrincipale extends Application{
         ScaleTransition st = new ScaleTransition(Duration.millis(2000), stringaSconfitta);
         st.setByX(1.5f);
         st.setByY(1.5f);
-        st.setCycleCount(2);
+        st.setCycleCount(Timeline.INDEFINITE);
         st.setAutoReverse(true);
  
         st.play();  
@@ -266,7 +270,10 @@ public class FinestraPrincipale extends Application{
     private void inizializzaClassifica(){
         
         Label titoloClassifica = new Label("Classifica");
-        titoloClassifica.setFont(new Font("Bebas Neue", 20));
+        titoloClassifica.setFont(new Font("Arial", 23));
+        titoloClassifica.setTranslateX(80);
+        titoloClassifica.setStyle("-fx-font-weight: bold; -fx-text-fill:white; "
+                + " -fx-font-size: 23;");
         
         TableColumn usernameColumn = new TableColumn("USERNAME"); 
         TableColumn punteggioColumn = new TableColumn("PUNTEGGIO"); 
@@ -360,11 +367,12 @@ public class FinestraPrincipale extends Application{
         stringaSconfitta.setFill(Color.TRANSPARENT);
         stringaSconfitta.setX(760);
         stringaSconfitta.setY(330);
+        stringaSconfitta.setFont(Font.font("Georgia", 45));
         
         stringaVittoria.setFill(Color.TRANSPARENT);
         stringaVittoria.setX(760);
         stringaVittoria.setY(330);
-        
+        stringaVittoria.setFont(Font.font("Georgia", 45));
     }
      public static void main(String[] args){
          launch(args);
