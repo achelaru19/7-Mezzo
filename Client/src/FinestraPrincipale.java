@@ -1,8 +1,5 @@
 
-import com.thoughtworks.xstream.*;
-import java.io.*;
 import java.net.*;
-import java.nio.file.*;
 import java.sql.*;
 import java.util.*;
 import javafx.animation.*;
@@ -40,6 +37,7 @@ public class FinestraPrincipale extends Application{
     private final VBox vboxGrafico = new VBox();
     private PieChart grafico;
     private ManagerParametriConfigurazioni managerConfigurazioni;
+    private ManagerEventiLogXML managerLog; 
     public static ConfigurazioniXML parametri;
     private final ManagerCacheBinaria managerCache = new ManagerCacheBinaria();
     private Text  stringaVittoria = new Text ("Hai vinto!");
@@ -65,6 +63,7 @@ public class FinestraPrincipale extends Application{
         stage.show();
         
         caricaEventualeCache();
+        managerLog = new ManagerEventiLogXML();
         generaEventoLogXML("APERTURA");
     }
     
@@ -232,8 +231,7 @@ public class FinestraPrincipale extends Application{
         st.play();  
     }
 
-    private void generaEventoLogXML(String etichetta){
-        MessaggioDiLog logMessage;
+    private void generaEventoLogXML(String etichetta){ 
         String utente = null;
         if(giocoInCorso)
             utente = username_tf.getText();
@@ -242,18 +240,8 @@ public class FinestraPrincipale extends Application{
                 socket.connect(InetAddress.getByName("8.8.8.8"), 10002);
                 utente = (String) socket.getLocalAddress().getHostAddress();
             }catch(Exception e) {System.out.println(e.getMessage());}
-        }
-        logMessage = new MessaggioDiLog(etichetta, utente,
-                                    new Timestamp(System.currentTimeMillis()).toString());
-        XStream xs = new XStream();
-        String x = xs.toXML(logMessage);
-        try(Socket s = new Socket(parametri.configurazioniServer.ip, parametri.configurazioniServer.porta);
-            ObjectOutputStream oout = new ObjectOutputStream(s.getOutputStream());)
-        {   
-            x = x + "\n";
-            oout.writeObject(x);
-            Files.write(Paths.get("./EventoLog.txt"), x.getBytes());
-        } catch(Exception e){System.out.println("Scrittura non riuscita, Errore:" + e.getMessage());}
+        }   
+        managerLog.inviaEventoLogXML(parametri.configurazioniServer.ip, parametri.configurazioniServer.porta, etichetta, utente);
     }    
 
         

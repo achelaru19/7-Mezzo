@@ -1,7 +1,7 @@
 
 import java.sql.*;
 import javafx.collections.*;
-import javafx.scene.chart.PieChart;
+import javafx.scene.chart.*;
 
 public class GestoreDataBase {
     private final int portaDB;
@@ -71,14 +71,6 @@ public class GestoreDataBase {
         } catch (SQLException e) {System.err.println(e.getMessage());}
         return ol;
     }
-    private static final String SELECT_UTENTI_ASSIDUI ="SELECT username, count(*) as partiteGiocate\n" +
-                                                "from partite \n" +
-                                                "group by username \n" +
-                                                "limit 9;";   
-    private static final String QUERY_CLASSIFICA = "SELECT username, count(*) as punteggio \n" +
-                                                "from partite \n" +
-                                                "where esito=1\n" +
-                                                "group by username\n" +
-                                                "order by punteggio desc\n" +
-                                                "limit ? ;";
+    private static final String SELECT_UTENTI_ASSIDUI ="SELECT username, count(*) as partiteGiocate from partite group by username limit 9;";   
+    private static final String QUERY_CLASSIFICA = "SELECT username, count(*) as punteggio from partite where esito=1 group by username order by punteggio desc limit ? ;";
 }

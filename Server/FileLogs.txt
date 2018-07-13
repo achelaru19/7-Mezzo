@@ -3858,3 +3858,378 @@
   <utente>10.100.28.186</utente>
   <timestamp>2018-06-23 16:24:04.344</timestamp>
 </MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>10.102.1.201</utente>
+  <timestamp>2018-06-26 14:06:29.436</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-06-26 14:06:37.079</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-06-26 14:06:41.307</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-06-26 14:06:56.9</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-06-26 14:06:58.048</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-06-26 14:06:59.695</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-06-26 14:07:05.301</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-06-26 14:07:08.827</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>10.102.1.201</utente>
+  <timestamp>2018-06-26 14:07:55.109</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>0.0.0.0</utente>
+  <timestamp>2018-06-28 14:44:45.506</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-06-28 14:46:04.359</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-06-28 14:46:10.456</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>0.0.0.0</utente>
+  <timestamp>2018-06-28 14:46:14.95</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-06-28 14:46:19.316</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-06-28 14:46:20.746</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-06-28 14:46:23.275</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-06-28 14:46:30.935</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-06-28 14:46:52.388</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-06-28 14:47:02.145</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-06-28 14:47:29.548</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>192.168.1.102</utente>
+  <timestamp>2018-07-08 18:17:54.848</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>l.celesti</utente>
+  <timestamp>2018-07-08 18:18:05.592</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>l.celesti</utente>
+  <timestamp>2018-07-08 18:18:19.307</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>l.celesti</utente>
+  <timestamp>2018-07-08 18:18:38.954</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.celesti</utente>
+  <timestamp>2018-07-08 18:18:40.925</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>l.celesti</utente>
+  <timestamp>2018-07-08 18:18:42.974</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>l.celesti</utente>
+  <timestamp>2018-07-08 18:18:48.784</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.celesti</utente>
+  <timestamp>2018-07-08 18:18:52.701</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.celesti</utente>
+  <timestamp>2018-07-08 18:18:53.611</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.celesti</utente>
+  <timestamp>2018-07-08 18:18:56.913</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>l.celesti</utente>
+  <timestamp>2018-07-08 18:19:00.746</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>192.168.1.102</utente>
+  <timestamp>2018-07-08 18:19:55.324</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>192.168.1.102</utente>
+  <timestamp>2018-07-08 18:20:25.768</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-07-08 18:20:33.924</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-07-08 18:20:36.769</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-07-08 18:20:38.213</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-07-08 18:20:39.523</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-07-08 18:20:47.251</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>192.168.1.102</utente>
+  <timestamp>2018-07-08 18:20:48.477</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-07-08 18:20:50.099</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-07-08 18:20:51.199</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-07-08 18:20:51.766</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-07-08 18:20:53.352</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-07-08 18:20:57.889</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-07-08 18:21:01.791</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-07-08 18:21:02.688</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>192.168.1.102</utente>
+  <timestamp>2018-07-08 18:21:11.791</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>131.114.173.164</utente>
+  <timestamp>2018-07-13 13:23:05.396</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>131.114.173.164</utente>
+  <timestamp>2018-07-13 13:23:05.395</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:15.695</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:16.898</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:17.735</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:18.878</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:20.715</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:27.971</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:29.892</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:30.484</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:31.268</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:33.035</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:44.819</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:47.455</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>131.114.173.164</utente>
+  <timestamp>2018-07-13 13:23:48.09</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:53.189</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:55.07</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:23:55.573</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>131.114.173.164</utente>
+  <timestamp>2018-07-13 13:23:57.451</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:24:05.338</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>131.114.173.164</utente>
+  <timestamp>2018-07-13 13:24:15.571</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:24:33.085</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:25:00.307</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:25:01.891</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:25:15.241</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:25:17.254</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>l.lupi</utente>
+  <timestamp>2018-07-13 13:25:18.605</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>131.114.173.164</utente>
+  <timestamp>2018-07-13 13:25:28.092</timestamp>
+</MessaggioDiLog>
