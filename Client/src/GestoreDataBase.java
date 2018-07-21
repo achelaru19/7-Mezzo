@@ -37,28 +37,17 @@ public class GestoreDataBase {
     
     public void salvaPartita(String username, double punteggioGiocatore, double punteggioMazziere){
         try ( 
-            PreparedStatement ps = connection.prepareStatement("INSERT INTO partite VALUES(?,?,?,?,?)"); 
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO partite VALUES(?,?,null,?,?)"); 
         ) {
         ps.setString(1, username);
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         ps.setTimestamp(2,timestamp);
-        int esito = esitoGioco(punteggioGiocatore, punteggioMazziere);
-        ps.setInt(3, esito);
-        ps.setDouble(4, punteggioGiocatore);
-        ps.setDouble(5, punteggioMazziere);
+        ps.setDouble(3, punteggioGiocatore);
+        ps.setDouble(4, punteggioMazziere);
         System.out.println("rows affected: " + ps.executeUpdate());
         } catch (SQLException e) {System.err.println(e.getMessage());}
     }
 
-    private int esitoGioco(double punteggioGiocatore, double punteggioMazziere) {
-        if(punteggioGiocatore > 7.5)
-             return 0;
-        if(punteggioMazziere > 7.5)
-            return 1;
-        if(punteggioGiocatore > punteggioMazziere)
-               return 1;
-        return 0;
-    }
 
     public ObservableList<PieChart.Data> caricaGiocatoriAssidui() {
         ObservableList<PieChart.Data> ol = FXCollections.observableArrayList();

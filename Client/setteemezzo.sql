@@ -69,9 +69,39 @@ CREATE TABLE `partite` (
 
 LOCK TABLES `partite` WRITE;
 /*!40000 ALTER TABLE `partite` DISABLE KEYS */;
-INSERT INTO `partite` VALUES ('a.chelaru','2018-04-05 06:55:42',1,5.5,8),('a.chelaru','2018-04-05 07:55:42',1,7,9),('a.chelaru','2018-04-05 08:55:42',1,7.5,8),('a.chelaru','2018-04-05 09:05:42',1,6.5,10),('a.chelaru','2018-04-05 09:55:42',0,10,4),('a.chelaru','2018-04-05 10:55:42',1,7,8.5),('a.chelaru','2018-04-05 10:57:42',0,6.5,7),('c.pinguini','2018-04-05 06:55:42',1,6,9),('c.pinguini','2018-04-06 06:55:42',1,5,8),('c.pinguini','2018-04-07 06:55:42',0,9,3),('f.rondini','2018-04-07 06:35:42',1,6,8),('f.rondini','2018-04-07 06:56:42',0,5.5,6),('f.rondini','2018-04-08 06:55:42',0,7,7),('f.rondini','2019-03-17 17:55:42',1,7,11),('g.bianchi','2018-04-07 07:55:42',1,5,8),('g.bianchi','2018-05-07 06:55:42',1,7,10),('g.gabbiani','2017-04-07 06:55:42',0,9,2),('l.celesti','2018-04-07 08:55:42',1,6.5,9.5),('l.celesti','2018-05-07 09:55:42',1,7.5,9),('l.celesti','2018-11-07 07:55:42',1,7,11),('l.celesti','2018-12-07 07:55:42',1,5,8.5),('l.celesti','2019-04-06 06:55:42',0,6.5,12),('l.celesti','2019-04-07 06:55:42',0,8,6),('l.lupi','2018-04-07 16:55:42',1,6.5,8.5),('l.lupi','2018-06-07 06:55:42',0,8.5,3),('l.lupi','2018-07-07 06:55:42',0,10,5),('l.lupi','2018-08-07 06:55:42',0,9.5,2),('l.lupi','2018-09-07 06:55:42',0,8,3),('m.lepri','2017-04-07 06:55:42',1,5,8.5),('m.lepri','2018-04-07 10:55:42',0,9,5),('m.lepri','2018-05-07 06:55:42',1,7.5,9.5),('m.rossi','2018-03-17 17:55:42',0,8.5,2),('m.rossi','2018-04-07 06:55:42',1,7.5,10.5),('m.rossi','2018-04-07 13:55:42',0,5.5,7),('m.rossi','2018-05-07 06:55:42',1,6.5,9),('s.verdi','2018-04-07 06:55:42',0,11,0.5),('s.verdi','2018-05-07 06:55:42',1,6,8.5);
+INSERT INTO `partite` VALUES ('a.chelaru','2018-04-05 06:55:42',1,5.5,8),('a.chelaru','2018-04-05 07:55:42',1,7,9),('a.chelaru','2018-04-05 08:55:42',1,7.5,8),('a.chelaru','2018-04-05 09:05:42',1,6.5,10),('a.chelaru','2018-04-05 09:55:42',0,10,4),('a.chelaru','2018-04-05 10:55:42',1,7,8.5),('a.chelaru','2018-04-05 10:57:42',0,6.5,7),('a.chelaru','2018-07-21 08:13:59',1,7.5,12),('a.chelaru','2018-07-21 08:14:19',0,8.5,7),('c.pinguini','2018-04-05 06:55:42',1,6,9),('c.pinguini','2018-04-06 06:55:42',1,5,8),('c.pinguini','2018-04-07 06:55:42',0,9,3),('f.rondini','2018-04-07 06:35:42',1,6,8),('f.rondini','2018-04-07 06:56:42',0,5.5,6),('f.rondini','2018-04-08 06:55:42',0,7,7),('f.rondini','2019-03-17 17:55:42',1,7,11),('g.bianchi','2018-04-07 07:55:42',1,5,8),('g.bianchi','2018-05-07 06:55:42',1,7,10),('g.gabbiani','2017-04-07 06:55:42',0,9,2),('l.celesti','2018-04-07 08:55:42',1,6.5,9.5),('l.celesti','2018-05-07 09:55:42',1,7.5,9),('l.celesti','2018-11-07 07:55:42',1,7,11),('l.celesti','2018-12-07 07:55:42',1,5,8.5),('l.celesti','2019-04-06 06:55:42',0,6.5,12),('l.celesti','2019-04-07 06:55:42',0,8,6),('l.lupi','2018-04-07 16:55:42',1,6.5,8.5),('l.lupi','2018-06-07 06:55:42',0,8.5,3),('l.lupi','2018-07-07 06:55:42',0,10,5),('l.lupi','2018-07-21 08:10:52',1,6,10),('l.lupi','2018-08-07 06:55:42',0,9.5,2),('l.lupi','2018-09-07 06:55:42',0,8,3),('m.lepri','2017-04-07 06:55:42',1,5,8.5),('m.lepri','2018-04-07 10:55:42',0,9,5),('m.lepri','2018-05-07 06:55:42',1,7.5,9.5),('m.rossi','2018-03-17 17:55:42',0,8.5,2),('m.rossi','2018-04-07 06:55:42',1,7.5,10.5),('m.rossi','2018-04-07 13:55:42',0,5.5,7),('m.rossi','2018-05-07 06:55:42',1,6.5,9),('s.verdi','2018-04-07 06:55:42',0,11,0.5),('s.verdi','2018-05-07 06:55:42',1,6,8.5);
 /*!40000 ALTER TABLE `partite` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER determina_esito
+BEFORE INSERT ON partite
+FOR EACH ROW
+
+BEGIN 
+	IF (NEW.PunteggioGiocatore > 7.5) THEN
+		SET NEW.esito = 0;
+	ELSEIF (NEW.PunteggioMazziere > 7.5) THEN
+		SET NEW.esito = 1;
+	ELSEIF(NEW.PunteggioGiocatore > NEW.PunteggioMazziere) THEN
+		SET NEW.esito = 1;
+	ELSE
+		SET NEW.esito = 0;
+	END IF;
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -82,5 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-28 23:57:32
-
+-- Dump completed on 2018-07-21 10:16:05
