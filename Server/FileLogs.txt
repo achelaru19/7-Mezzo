@@ -4603,3 +4603,13 @@
   <utente>10.101.25.143</utente>
   <timestamp>2018-07-21 14:10:56.007</timestamp>
 </MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>131.114.173.176</utente>
+  <timestamp>2018-07-23 20:15:24.006</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>131.114.173.176</utente>
+  <timestamp>2018-07-23 20:17:47.253</timestamp>
+</MessaggioDiLog>

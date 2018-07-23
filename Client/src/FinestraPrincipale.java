@@ -258,16 +258,14 @@ public class FinestraPrincipale extends Application{
         Label titoloClassifica = new Label("Classifica");
         titoloClassifica.setFont(new Font("Arial", 23));
         titoloClassifica.setTranslateX(80);
-        titoloClassifica.setStyle("-fx-font-weight: bold; -fx-text-fill:white; "
-                + " -fx-font-size: 23;");
+        titoloClassifica.setStyle("-fx-font-weight: bold; -fx-text-fill:white; -fx-font-size: 23;");
         
         TableColumn usernameColumn = new TableColumn("USERNAME"); 
         TableColumn punteggioColumn = new TableColumn("PUNTEGGIO"); 
         usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username")); 
         punteggioColumn.setCellValueFactory(new PropertyValueFactory<>("punteggio")); 
         
-        tuplaClassifica = gestoreDB.caricaClassifica();
-        
+        tuplaClassifica.addAll(gestoreDB.caricaClassifica());
         tabellaClassifica.setItems(tuplaClassifica);
         tabellaClassifica.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tabellaClassifica.getColumns().addAll(usernameColumn, punteggioColumn);
@@ -278,15 +276,15 @@ public class FinestraPrincipale extends Application{
         classifica.setLayoutX(1075);
         classifica.setLayoutY(20);
         classifica.setMaxHeight(300);
-        
-        
     }   
     
     private void inizializzaPieChart(){
         
-        ObservableList<PieChart.Data> datiGrafico; 
-        datiGrafico = FXCollections.observableArrayList();
-        datiGrafico.addAll(gestoreDB.caricaGiocatoriAssidui());
+        ObservableList<PieChart.Data> datiGrafico = FXCollections.observableArrayList();
+        List<GiocatoreAssiduo> listaGiocatoriAssidui = gestoreDB.caricaGiocatoriAssidui();
+        for(int i = 0; i < listaGiocatoriAssidui.size(); i++ ){
+            datiGrafico.add(new PieChart.Data(listaGiocatoriAssidui.get(i).getUsername(), listaGiocatoriAssidui.get(i).getPartite()));
+        }
         grafico = new PieChart(datiGrafico);   
         grafico.setTitle("Giocatori Assidui");
         grafico.setLegendVisible(true);
@@ -300,35 +298,27 @@ public class FinestraPrincipale extends Application{
     }
     
     private void inizializzaBottoniEImmagini(){
-        
         mazzo_img = new ImageView("file:../../myfiles/other/mazzo.png"); 
         prendi_bt = new Button("✚");
         stai_bt = new Button("✓");
         start_bt = new Button("START");
         username_tf = new TextField();
-        
         mazzo_img.setY(270);  
         mazzo_img.setX(340);  
-        
         prendi_bt.setLayoutX(480);
         prendi_bt.setLayoutY(325);
         stai_bt.setLayoutX(520);
         stai_bt.setLayoutY(325);
         start_bt.setLayoutX(175);
         start_bt.setLayoutY(30);
-        
         prendi_bt.getStyleClass().add("prendi-button");
         stai_bt.getStyleClass().add("stai-button");
         start_bt.getStyleClass().add("start-button");
-        
-        
         prendi_bt.setOnAction((ActionEvent ev)->{prendi();generaEventoLogXML("PRENDI");});
         stai_bt.setOnAction((ActionEvent ev)->{stai();generaEventoLogXML("STAI");});
         start_bt.setOnAction((ActionEvent ev)->{inizializzaPartita();generaEventoLogXML("START");});
-        
         username_tf.setLayoutX(15);
         username_tf.setLayoutY(30);
-        
     }
     
     private void inizializzaBoxCarte(){

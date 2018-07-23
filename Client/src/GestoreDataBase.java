@@ -1,7 +1,6 @@
 
 import java.sql.*;
-import javafx.collections.*;
-import javafx.scene.chart.*;
+import java.util.*;
 
 public class GestoreDataBase { 
     private final int portaDB;
@@ -22,8 +21,8 @@ public class GestoreDataBase {
     }
     
     
-    public ObservableList<MigliorGiocatore> caricaClassifica(){ // 01
-        ObservableList<MigliorGiocatore> ol = FXCollections.observableArrayList();
+    public List<MigliorGiocatore> caricaClassifica(){ // 01
+        List<MigliorGiocatore> ol = new ArrayList();
         try ( 
             PreparedStatement ps = connection.prepareStatement(QUERY_CLASSIFICA); 
         ) {
@@ -49,14 +48,14 @@ public class GestoreDataBase {
     }
 
 
-    public ObservableList<PieChart.Data> caricaGiocatoriAssidui() { // 03
-        ObservableList<PieChart.Data> ol = FXCollections.observableArrayList();
+    public List<GiocatoreAssiduo> caricaGiocatoriAssidui() { // 03
+        List<GiocatoreAssiduo> ol = new ArrayList<>();
          try ( 
             Statement query = connection.createStatement(); 
         ) {
         ResultSet result = query.executeQuery(SELECT_UTENTI_ASSIDUI);
             while (result.next()) 
-                ol.add(new PieChart.Data(result.getString("username"), result.getInt("partiteGiocate")));
+                ol.add(new GiocatoreAssiduo(result.getString("username"), result.getInt("partiteGiocate")));
         } catch (SQLException e) {System.err.println(e.getMessage());}
         return ol;
     }
