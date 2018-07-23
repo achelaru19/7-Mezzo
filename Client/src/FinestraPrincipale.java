@@ -66,7 +66,7 @@ public class FinestraPrincipale extends Application{
         generaEventoLogXML("APERTURA");
     }
     
-    private void prendi(){
+    private void prendi(){ // 01
         Carta cartaPresa = partita.prendiCarta();
         aggiungiCartaGiocatore(cartaPresa.getNome());
         if(parametri != null)
@@ -81,7 +81,7 @@ public class FinestraPrincipale extends Application{
         }
     }
     
-    private void stai(){
+    private void stai(){ // 02
         KeyFrame keyFrame;
         keyFrame = new KeyFrame(Duration.millis(1500),( ActionEvent event) -> {
             if(!partita.stai()) {
@@ -146,7 +146,7 @@ public class FinestraPrincipale extends Application{
         aggiungiCarta(boxGiocatore, nomeCarta);
     }
     
-     public void aggiungiCarta(HBox hbox, String nomeCarta){
+     public void aggiungiCarta(HBox hbox, String nomeCarta){ // 03
         String appMain = System.getProperty("user.dir");
         String url ="file:" + appMain + "/myfiles/carte/" + nomeCarta + ".jpg";
         System.out.println(url);
@@ -158,7 +158,7 @@ public class FinestraPrincipale extends Application{
         hbox.getChildren().add(imageContainer);
     }
      
-    private void salvaCacheBinaria(){
+    private void salvaCacheBinaria(){ // 04
         if(giocoInCorso){
             List<Carta> cG = partita.carteGiocatore();
             Carta cM = partita.carteMazziere().get(0);
@@ -166,7 +166,7 @@ public class FinestraPrincipale extends Application{
         }
     }
     
-    private void caricaEventualeCache() {
+    private void caricaEventualeCache() { // 05
         CacheBinaria cache = managerCache.prelevaCacheBinaria();
         if(cache != null){
             if(confrontaTimestamp(cache.tempo) <= parametri.configurazioniTemporali.oreIndietroCache){
@@ -229,12 +229,12 @@ public class FinestraPrincipale extends Application{
         st.play();  
     }
 
-    private void generaEventoLogXML(String etichetta){ 
+    private void generaEventoLogXML(String etichetta){ // 06
         String utente = null;
         if(giocoInCorso)
             utente = username_tf.getText();
         else{
-            try(final DatagramSocket socket = new DatagramSocket()){ //(10)
+            try(final DatagramSocket socket = new DatagramSocket()){ //07
                 socket.connect(InetAddress.getByName("8.8.8.8"), 10002);
                 utente = (String) socket.getLocalAddress().getHostAddress();
             }catch(Exception e) {System.out.println(e.getMessage());}
@@ -367,11 +367,17 @@ public class FinestraPrincipale extends Application{
 
 /*
 Note:
-    01)
-    
-    02) Soluzione per trovare l'IP usato dall'applicazione.  
+    Questa classe funge da GUI per il gioco. Inoltre contiene anche la tabella con 
+    la classifica dei miglior giocatori e il 
+    01) Questo metodo svolge da risposta all'evento quando viene premuto il tasto +. 
+        Aggiunge una carta alla mano del giocatore.
+    02) Questo metodo svolge da risposta all'evento quando viene premuto il tasto *tick*.
+        Inizia a far giocare il mazziere.
+    03) Questo metodo aggiunge graficamente l'immagine della carta estratta.
+    04) Se la finestra viene chiusa e il gioco è in corso, questo metodo salva la cache.
+    05) Se la cache non è vuota, questo metodo ripristina la partita precedentemente interrotta.
+    06) Questo metodo genera un messaggio di log in formato xml da mandare al server.
+    07) Soluzione per trovare l'IP usato dall'applicazione.  
      Il codice è stato preso da https://stackoverflow.com/questions/9481865/getting-the-ip-address-of-the-current-machine-using-java
-
-
 
 */
