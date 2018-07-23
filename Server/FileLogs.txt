@@ -4558,3 +4558,48 @@
   <utente>a.chelaru</utente>
   <timestamp>2018-07-21 11:00:02.67</timestamp>
 </MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>APERTURA</etichetta>
+  <utente>a.chelaru</utente>
+  <timestamp>2018-07-21 14:09:56.756</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>g.gabbiani</utente>
+  <timestamp>2018-07-21 14:10:27.066</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>g.gabbiani</utente>
+  <timestamp>2018-07-21 14:10:32.4</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>STAI</etichetta>
+  <utente>g.gabbiani</utente>
+  <timestamp>2018-07-21 14:10:33.543</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>START</etichetta>
+  <utente>g.gabbiani</utente>
+  <timestamp>2018-07-21 14:10:44.651</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>g.gabbiani</utente>
+  <timestamp>2018-07-21 14:10:46.185</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>g.gabbiani</utente>
+  <timestamp>2018-07-21 14:10:47.056</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>PRENDI</etichetta>
+  <utente>10.101.25.143</utente>
+  <timestamp>2018-07-21 14:10:47.77</timestamp>
+</MessaggioDiLog>
+<MessaggioDiLog>
+  <etichetta>CHIUSURA</etichetta>
+  <utente>10.101.25.143</utente>
+  <timestamp>2018-07-21 14:10:56.007</timestamp>
+</MessaggioDiLog>

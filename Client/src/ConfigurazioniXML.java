@@ -1,5 +1,5 @@
 
-public class ConfigurazioniXML {
+public class ConfigurazioniXML { // 01
     
     public ConfigurazioniStylingFinestraPrincipaleXML configurazioniStylingFinestraPrincipale;
     public ConfigurazioniDatabaseXML configurazioniDatabase;
@@ -81,3 +81,8 @@ public class ConfigurazioniXML {
     }
 }
 
+/*
+    Note:
+        01) Un'istanza di questa classe viene inizializzata all'avvio e conterrà
+            i parametri di sistema contenuto nel file Configurazioni.xml
+*/

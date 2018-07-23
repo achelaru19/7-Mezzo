@@ -73,3 +73,10 @@ public class Mazzo {
     }
     
 }
+
+/*
+    Questa classe rappresenta un mazzo di carte napoletane per implementare
+    il gioco Sette e mezzo. 
+    Contiene 40 carte: 4 semi (denari, bastoni, coppe, spade) di cui
+    7 numeri e 3 figure(re, fante, cavallo).
+*/

@@ -3,7 +3,7 @@ import java.sql.*;
 import javafx.collections.*;
 import javafx.scene.chart.*;
 
-public class GestoreDataBase {
+public class GestoreDataBase { 
     private final int portaDB;
     private final String nomeDB;
     private final String usernameDB;
@@ -22,10 +22,10 @@ public class GestoreDataBase {
     }
     
     
-    public ObservableList<MigliorGiocatore> caricaClassifica(){
+    public ObservableList<MigliorGiocatore> caricaClassifica(){ // 01
         ObservableList<MigliorGiocatore> ol = FXCollections.observableArrayList();
         try ( 
-            PreparedStatement ps = connection.prepareStatement(QUERY_CLASSIFICA); //10
+            PreparedStatement ps = connection.prepareStatement(QUERY_CLASSIFICA); 
         ) {
         ps.setInt(1, FinestraPrincipale.parametri.configurazioniClassifica.massimoNumeroMigliorGiocatori);
         ResultSet result = ps.executeQuery(); 
@@ -35,7 +35,7 @@ public class GestoreDataBase {
         return ol;
     }
     
-    public void salvaPartita(String username, double punteggioGiocatore, double punteggioMazziere){
+    public void salvaPartita(String username, double punteggioGiocatore, double punteggioMazziere){  // 02
         try ( 
             PreparedStatement ps = connection.prepareStatement("INSERT INTO partite VALUES(?,?,null,?,?)"); 
         ) {
@@ -49,13 +49,13 @@ public class GestoreDataBase {
     }
 
 
-    public ObservableList<PieChart.Data> caricaGiocatoriAssidui() {
+    public ObservableList<PieChart.Data> caricaGiocatoriAssidui() { // 03
         ObservableList<PieChart.Data> ol = FXCollections.observableArrayList();
          try ( 
-            Statement query = connection.createStatement(); //10
+            Statement query = connection.createStatement(); 
         ) {
         ResultSet result = query.executeQuery(SELECT_UTENTI_ASSIDUI);
-            while (result.next()) //12
+            while (result.next()) 
                 ol.add(new PieChart.Data(result.getString("username"), result.getInt("partiteGiocate")));
         } catch (SQLException e) {System.err.println(e.getMessage());}
         return ol;
@@ -63,3 +63,15 @@ public class GestoreDataBase {
     private static final String SELECT_UTENTI_ASSIDUI ="SELECT username, count(*) as partiteGiocate from partite group by username limit 9;";   
     private static final String QUERY_CLASSIFICA = "SELECT username, count(*) as punteggio from partite where esito=1 group by username order by punteggio desc limit ? ;";
 }
+
+
+/*
+Note:
+Classe che gestisce tutte le interazioni tra applicazione e database, contiene
+tutti i metodi che possono essere richiamati dall'applicazione per recuperare informazioni.
+
+    01) metodo che prende dal database i giocatori con il punteggio più alto. Il numero di giocatori da selezionare
+        viene deciso tramite il parametro di sistema.
+    02) metodo che salva nel database il risultato della partita appena conclusa.
+    03) metodo che prende dal database i 9 giocatori più assidui e li restituisce sotto forma di ObservableList<PieChart.Data>.
+*/

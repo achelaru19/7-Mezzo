@@ -2,7 +2,7 @@
 import java.io.*;
 
 
-public class MessaggioDiLog implements Serializable{
+public class MessaggioDiLog implements Serializable{ // 01
     
     public final String etichetta;
     public final String utente;
@@ -14,3 +14,9 @@ public class MessaggioDiLog implements Serializable{
         timestamp = t;
     }
 }
+
+/*
+    Note:        
+        01) la classe implementa l'interfaccia Serializable, che ne 
+            permette la serializzazione per la trasmissione al server.
+*/

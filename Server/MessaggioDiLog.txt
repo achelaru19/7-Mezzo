@@ -1,5 +1,5 @@
 <MessaggioDiLog>
   <etichetta>CHIUSURA</etichetta>
-  <utente>a.chelaru</utente>
-  <timestamp>2018-07-21 11:00:02.67</timestamp>
+  <utente>10.101.25.143</utente>
+  <timestamp>2018-07-21 14:10:56.007</timestamp>
 </MessaggioDiLog>

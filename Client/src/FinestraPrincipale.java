@@ -18,7 +18,6 @@ import javafx.stage.*;
 import javafx.util.*;
 
 
-
 public class FinestraPrincipale extends Application{
 
     private ImageView mazzo_img;
@@ -43,7 +42,7 @@ public class FinestraPrincipale extends Application{
     private Text  stringaVittoria = new Text ("Hai vinto!");
     private Text  stringaSconfitta = new Text ("Hai perso!");
     
-    @Override
+    
     public void start(Stage stage)  {
         
         managerConfigurazioni = new ManagerParametriConfigurazioni("Configurazioni.xml","Configurazioni.xsd");
@@ -92,7 +91,7 @@ public class FinestraPrincipale extends Application{
                           mostraVittoria();
                     else
                           mostraSconfitta();
-                }//**************** CONTROLLA *******************//
+                }
                 else{
                     if(partita.vittoria())
                           mostraVittoria();
@@ -106,7 +105,6 @@ public class FinestraPrincipale extends Application{
                 giocataMazziere();
             }
         });
-
         timeline.getKeyFrames().add(keyFrame);
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play(); 
@@ -368,8 +366,10 @@ public class FinestraPrincipale extends Application{
 }
 
 /*
-
-(10) Soluzione per trovare l'IP usato dall'applicazione.  
+Note:
+    01)
+    
+    02) Soluzione per trovare l'IP usato dall'applicazione.  
      Il codice è stato preso da https://stackoverflow.com/questions/9481865/getting-the-ip-address-of-the-current-machine-using-java
 
 

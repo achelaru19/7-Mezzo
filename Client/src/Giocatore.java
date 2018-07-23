@@ -2,7 +2,7 @@
 import java.util.*;
 
 
-public class Giocatore {
+public class Giocatore { // 01
     
     private String username;
     private List<Carta> carte;
@@ -51,3 +51,10 @@ public class Giocatore {
         return carte.get(0);
     }
 }
+
+/* 
+Note:
+    01) Questa classe rappresenta un giocatore e contiene una lista delle carte che 
+    ha estratto e il suo nome. Se non viene specificato nessun nome, la classe considera
+    quel giocatore come se fosse il mazziere.
+*/

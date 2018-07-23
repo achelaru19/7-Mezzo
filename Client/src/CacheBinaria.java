@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.*;
 
 
-public class CacheBinaria implements Serializable { 
+public class CacheBinaria implements Serializable { // 01
     public String username;
     public List<Carta> carteGiocatore;
     public Carta cartaMazziere;
@@ -17,3 +17,10 @@ public class CacheBinaria implements Serializable {
         tempo = new Timestamp(System.currentTimeMillis());
     }
 }
+
+/*
+    Note:        
+        01) la classe implementa l'interfaccia Serializable, che ne 
+            permette la serializzazione per l'inserimento su un file
+            in formato .bin
+*/

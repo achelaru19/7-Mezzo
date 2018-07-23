@@ -10,7 +10,7 @@ import java.nio.file.*;
 import com.thoughtworks.xstream.*;
 import org.xml.sax.*;
 
-public class ManagerParametriConfigurazioni {
+public class ManagerParametriConfigurazioni { // 01
 
     private final String pathConfigurazioniXML;
     private final String pathConfigurazioniXSD;
@@ -21,7 +21,7 @@ public class ManagerParametriConfigurazioni {
         pathConfigurazioniXSD = pathConfigXSD;
     }
 
-    public ConfigurazioniXML inizializzaParametriConfigurazione(){
+    public ConfigurazioniXML inizializzaParametriConfigurazione(){ // 02
         ConfigurazioniXML parametri;
         try{
             if (validaFileDiConfigurazione()) {
@@ -34,7 +34,7 @@ public class ManagerParametriConfigurazioni {
         return null;
     }
 
-    public boolean validaFileDiConfigurazione(){
+    public boolean validaFileDiConfigurazione(){ // 03
         try{
             DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
@@ -52,3 +52,11 @@ public class ManagerParametriConfigurazioni {
     }
 }
 
+/*
+Note:
+    01) Questa classe contiene i metodi per leggere, convalidare e inizializzare
+        i parametri di configurazioni contenuti nel file di configurazioni in xml.
+    02) Questo metodo legge il file Configurazioni.xml, lo convalida tramite il 
+        metodo (03) e restituisci un'istanza contenenti i parametri. 
+    03) Questo metodo convalida il file di configurazione con il file XSD.    
+*/

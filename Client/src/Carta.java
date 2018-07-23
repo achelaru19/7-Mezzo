@@ -13,8 +13,8 @@ public class Carta implements Serializable{
     
     public double getValore(){
         try {
-            return Integer.parseInt(numero);
-        } catch (NumberFormatException e) {
+            return Integer.parseInt(numero); // 01
+        } catch (NumberFormatException e) {  // 02
             return 0.5;
         }
                 
@@ -24,3 +24,11 @@ public class Carta implements Serializable{
         return numero + "_" + seme;
     }
 }
+
+
+/*
+    01) Se la stringa numero è effettivamente un numero (che sarà compreso tra 1 e 7),
+        allora restituiamo quel numero;
+    02) Altrimenti viene lanciata una eccezione che indica che il numero rappresenta
+        una figura, perciò restituiamo mezzo punto.
+*/

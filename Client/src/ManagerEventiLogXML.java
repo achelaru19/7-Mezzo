@@ -6,7 +6,7 @@ import java.nio.file.*;
 import java.sql.*;
 
 
-public class ManagerEventiLogXML {
+public class ManagerEventiLogXML { // 01
     
     public void inviaEventoLogXML(String ip, int porta, String etichetta, String utente){
         MessaggioDiLog logMessage= new MessaggioDiLog(etichetta, utente,
@@ -25,3 +25,9 @@ public class ManagerEventiLogXML {
         } catch(Exception e){System.out.println("Scrittura non riuscita, Errore:" + e.getMessage());}
     }
 }
+
+/*
+Note:
+    01) Questa classe invia messaggi di Log al server.
+
+*/

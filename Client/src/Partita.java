@@ -18,7 +18,7 @@ public class Partita {
         mazzo.mescola();
     }
     
-    public void inizializza(){
+    public void inizializza(){ // 01
         this.mazzo = new Mazzo();
         mazzo.mescola();
         giocoFinito = false;
@@ -32,7 +32,7 @@ public class Partita {
         
     }
     
-    public Carta prendiCarta(){
+    public Carta prendiCarta(){ // 02
         Carta cartaEstratta = mazzo.estraiCarta();
         user.aggiungiCarta(cartaEstratta);
         System.out.println("Il numero di carte rimanenti è: " + Integer.toString(mazzo.getSize()));
@@ -54,7 +54,7 @@ public class Partita {
         return cartaEstratta;
     }
     
-    public boolean stai(){
+    public boolean stai(){ // 03
         double punteggioUser = user.getPunteggio();
         double punteggioMazziere = mazziere.getPunteggio();
         System.out.println("Il punteggio giocatore è " + Double.toString(punteggioUser));
@@ -82,8 +82,7 @@ public class Partita {
     }   
     
     public void resetta(){
-        
-        System.out.println("TIME TO RESET");
+        System.out.println("TIME TO RESET"); /* For Debugging Purpose */
         inizializza();
     }
     
@@ -123,3 +122,13 @@ public class Partita {
      
 }
 
+/*
+
+    01) questo metodo viene separato dal costruttore perché così facendo possiamo
+        inizializzare una nuova partita senza dover creare una nuova istanza
+        della classe partita.
+    02) questo metodo aggiunge una carta alla mano dell'utente.
+    03) quando viene invocato questo metodo, il giocatore ha deciso di rimanere
+        e il mazziere inizia ad estrarre tante carte fino a che non supera il giocatore
+        o finché non supera il punteggio di 7.5.
+*/
